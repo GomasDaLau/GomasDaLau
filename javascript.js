@@ -518,6 +518,11 @@ function updateCartPopup() {
             product.quantity = 0;
 
             cart.splice(index, 1); // Remove item from cart
+
+            if(cart.length == 0){
+                const btn = document.getElementById('next-btn');
+                btn.disabled = true;
+            }
             
             updateCartCount(); // Update cart count
             updateCartPopup(); // Refresh cart popup
