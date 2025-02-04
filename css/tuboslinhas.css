@@ -52,3 +52,27 @@
 .links_gomas button:hover {
     background: linear-gradient(80deg, #b3da79, #d7d661, #8ac9ca, #c7e4e5);
 }
+
+@media screen and (max-width: 768px) {
+    .links button {
+        width: 38%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .links_gomas button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 588px) {
+    .links button {
+        width: 58%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .links button {
+        width: 70%;
+    }
+}
