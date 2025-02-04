@@ -373,7 +373,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo,
             name : "Gomas, Tubos, Linhas e Línguas",
             peso: parseFloat(peso.value),
-            price: parseFloat(peso.value) * 10 * 9.50,
+            price: parseFloat(peso.value)* 9.50,
             peso: parseFloat(peso.value),
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
