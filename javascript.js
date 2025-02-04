@@ -276,7 +276,7 @@ function addKilosRandom(){
     let product = null;
 
     if (window.location.href.includes("gomaskilo.html")) {
-        product = { id: 10000+global_nGomasKilo, name : "Gomas ao Kilo (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
+        product = { id: 10000+global_nGomasKilo, name : "Gomas ao Kilo (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
         const allSelected_gomas = document.getElementsByClassName("selected");
         const elementsArray = Array.from(allSelected_gomas);
         for (let i = 0; i < elementsArray.length; i++) {
@@ -286,7 +286,7 @@ function addKilosRandom(){
         }
     }
     else if(window.location.href.includes("tuboslinhaslinguas.html")){
-        product = { id: 10000+global_nGomasKilo, name : "Tubos, Linhas e Línguas (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
+        product = { id: 10000+global_nGomasKilo, name : "Tubos, Linhas e Línguas (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
         const allSelected_gomas = document.getElementsByClassName("selected");
         const elementsArray = Array.from(allSelected_gomas);
         for (let i = 0; i < elementsArray.length; i++) {
@@ -296,7 +296,7 @@ function addKilosRandom(){
         }
     }
     else if(window.location.href.includes("gomastuboslinhaslinguas.html")){
-        product = { id: 10000+global_nGomasKilo, name : "Gomas, Tubos, Linhas e Línguas (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
+        product = { id: 10000+global_nGomasKilo, name : "Gomas, Tubos, Linhas e Línguas (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
         const allSelected_gomas = document.getElementsByClassName("selected");
         const elementsArray = Array.from(allSelected_gomas);
         for (let i = 0; i < elementsArray.length; i++) {
@@ -329,7 +329,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo, 
             name : "Gomas ao Kilo", 
             peso: parseFloat(peso.value),
-            price: parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50, 
+            price: parseFloat(peso.value) * 9.50, 
             peso: parseFloat(peso.value), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
@@ -351,7 +351,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo, 
             name : "Tubos, Linhas e Línguas", 
             peso: parseFloat(peso.value),
-            price: parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50, 
+            price: parseFloat(peso.value) * 9.50, 
             peso: parseFloat(peso.value), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
@@ -373,7 +373,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo,
             name : "Gomas, Tubos, Linhas e Línguas",
             peso: parseFloat(peso.value),
-            price: parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50,
+            price: parseFloat(peso.value) * 10 * 9.50,
             peso: parseFloat(peso.value),
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
