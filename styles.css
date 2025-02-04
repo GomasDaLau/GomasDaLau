@@ -449,7 +449,7 @@
 }
 
 
-#add_kilos:not(:enabled), #add_kilos_random:not(:enabled), #download-pdf-btn:not(:enabled){
+#add_kilos:not(:enabled), #add_kilos_random:not(:enabled), #download-pdf-btn:not(:enabled), #next-btn:not(:enabled){
   background-color: #585858;
   color: white;
   padding: 10px 12px;
@@ -460,7 +460,7 @@
   margin-top: 10px; 
 }
 
-#add_kilos:not(:disabled), #add_kilos_random:not(:disabled), #next-btn, #download-pdf-btn:not(:disabled), #aplicar-desconto {
+#add_kilos:not(:disabled), #add_kilos_random:not(:disabled), #next-btn:not(:disabled), #download-pdf-btn:not(:disabled), #aplicar-desconto, #em-mao {
   background-color: #c37498;
   color: white;
   padding: 10px 12px;
@@ -472,7 +472,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#add_kilos:not(:disabled):hover, #add_kilos_random:not(:disabled):hover, #download-pdf-btn:not(:disabled):hover, #next-btn:hover, #aplicar-desconto:hover {
+#add_kilos:not(:disabled):hover, #add_kilos_random:not(:disabled):hover, #download-pdf-btn:not(:disabled):hover, #next-btn:not(:disabled):hover, #aplicar-desconto:hover {
     background-color: #ab6685;
     transform: scale(1.05);
   }

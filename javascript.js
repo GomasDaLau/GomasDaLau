@@ -499,6 +499,7 @@ function updateCartPopup() {
 
     downloadButton.style.display = 'block';
 
+
     // Add event listeners to delete buttons
     document.querySelectorAll('.delete-item').forEach(button => {
         button.addEventListener('click', function() {
@@ -519,10 +520,10 @@ function updateCartPopup() {
 
             cart.splice(index, 1); // Remove item from cart
 
-            if(cart.length == 0){
+            /*if(cart.length == 0){ BUG
                 const btn = document.getElementById('next-btn');
                 btn.disabled = true;
-            }
+            }*/
             
             updateCartCount(); // Update cart count
             updateCartPopup(); // Refresh cart popup
@@ -1104,13 +1105,13 @@ function generatePDF() {
     yOffset += 15;
 
     // Get user inputs
-    const name = document.getElementById('user-name').value.trim();
-    const name2 = document.getElementById('user-name2').value.trim();
-    const email = document.getElementById('user-email').value.trim();
-    const country = document.getElementById('user-country').value.trim();
-    const address = document.getElementById('user-address').value.trim();
-    const postalcode = document.getElementById('user-postalcode').value.trim();
-    const phone = document.getElementById('user-phone').value.trim();
+    const name = document.getElementById('user-name').value;
+    const name2 = document.getElementById('user-name2').value;
+    const email = document.getElementById('user-email').value;
+    const country = document.getElementById('user-country').value;
+    const address = document.getElementById('user-address').value;
+    const postalcode = document.getElementById('user-postalcode').value;
+    const phone = document.getElementById('user-phone').value;
 
     // Add personal details to the PDF
     doc.setFontSize(12);
@@ -1201,22 +1202,39 @@ function generatePDF() {
     endtext += `${total.textContent}    `;
     doc.text(endtext, (pageWidth - doc.getTextWidth(endtext) - 10), yOffset);
 
+    yOffset +=5;
+    doc.text(compra_status == 1 ? 'Encomenda' : 'Em mão', (pageWidth - doc.getTextWidth(compra_status == 1 ? 'Encomenda' : 'Em mão') - 10), yOffset);
+
     cart = [];
     cart_gomasKilo = [];
     cart_tuboslinhaslinguas = [];
     cart_gomastuboslinnhaslinguas = [];
-    name.value = '';
-    email.value = '';
-    country.value = '';
-    address.value = '';
-    postalcode.value = '';
-    phone.value = '';
+    name = '';
+    email = '';
+    country = '';
+    address = '';
+    postalcode= '';
+    phone= '';
 
     // Download the PDF
     doc.save('carrinho-gomasdalau.pdf');
 
+    // Convert to Blob and create a URL
+    const pdfBlob = doc.output('blob');
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+
+    // Share on WhatsApp
+    shareOnWhatsApp(pdfUrl);
+
     updateCartCount();
     updateCartPopup();
+}
+function shareOnWhatsApp(pdfUrl) {
+    const phoneNumber = "351934456979"; // Change this to the recipient's number
+    const message = encodeURIComponent("Aqui está o seu recibo. Baixe o PDF abaixo:");
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message} ${pdfUrl}`;
+
+    window.open(whatsappUrl, '_blank');
 }
 
 
@@ -1327,6 +1345,7 @@ function switchToDetails() {
     cartTitle.textContent = 'Adicionar dados 📝';
     cartView.style.display = 'none';
     detailsView.style.display = 'block';
+    
 }
 
 // Switch back to "Carrinho" view
@@ -1389,8 +1408,6 @@ function checkInputs_portes() {
     // Enable/Disable the download button based on validation
     const downloadBtn = document.getElementById('download-pdf-btn');
     downloadBtn.disabled = !isFormValid;
-
-    calcularPortes();
 }
 
 
@@ -1429,6 +1446,7 @@ function applyDiscount(){
     
 }
 
+
 /* PORTES */
 const countries = [
     { name: "Portugal Continental", kg_1: 5, kg_2: 5, kg_3: 5, kg_4: 5, kg_5: 5, kg_6: 6, kg_7: 6, kg_8: 6, kg_9: 6, kg_10: 6, kg_11: 7, kg_12: 7, kg_13: 7, kg_14: 7, kg_15: 7, kg_16: 9, kg_17: 9, kg_18: 9, kg_19: 9, kg_20: 9},
@@ -1456,40 +1474,75 @@ const countries = [
     { name: "Suécia", kg_1: 15, kg_2: 16.50, kg_3: 19, kg_4:22, kg_5: 23.50, kg_6: 31.50, kg_7: 31.50, kg_8: 31.50, kg_9: 31.50, kg_10: 31.50, kg_11: 45, kg_12: 45, kg_13: 45, kg_14: 45, kg_15: 45, kg_16: 59, kg_17: 59, kg_18: 59, kg_19: 59, kg_20: 59},
 ]
 
-let global_portes = 0;
 function calcularPortes(){
-    let pesoTotal = 0;
-    const countryName = document.getElementById('user-country').value;
+    if(compra_status == 1){
+        let pesoTotal = 0;
+        const countryName = document.getElementById('user-country').value;
 
-    cart.forEach(item => {
-        if(item.peso){
-            pesoTotal += item.peso * item.quantity;
-        }
-        else{
-            pesoTotal += 10 * item.quantity;
-        }
-    });
+        cart.forEach(item => {
+            if(item.peso){
+                pesoTotal += item.peso * item.quantity;
+            }
+            else{
+                pesoTotal += 10 * item.quantity;
+            }
+        });
 
-    const country = countries.find(c => c.name === countryName);
+        const country = countries.find(c => c.name === countryName);
 
-    let portes = 0;
-    for (let i = 1; i <= 20; i++) {
-        if (pesoTotal <= i) {
-            portes = country["kg_" + i]; // Corrected syntax
-            break;
+        let portes = 0;
+        for (let i = 1; i <= 20; i++) {
+            if (pesoTotal <= i) {
+                portes = country["kg_" + i]; // Corrected syntax
+                break;
+            }
         }
+
+        const totalPrice = document.getElementById('total-price');
+        const totalPrice2 = document.getElementById('total-price2');
+        let total = parseFloat(totalPrice.textContent.split(' ')[1].replace('€', ''));
+        
+        total = total - global_portes + portes;
+        global_portes = portes;
+
+        totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
+        totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
     }
+}
+
+let global_portes = 0;
+let compra_status = 1; // 1 - ENCOMENDA, 0 - MAOSd
+
+function em_mao(){
+    const em_mao = document.getElementById('em-mao');
 
     const totalPrice = document.getElementById('total-price');
     const totalPrice2 = document.getElementById('total-price2');
-    let total = parseFloat(totalPrice.textContent.split(' ')[1].replace('€', ''));
-    
-    total = total - global_portes + portes;
-    global_portes = portes;
 
-    totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
-    totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
+    let total = parseFloat(totalPrice.textContent.split(' ')[1].replace('€', ''));
+
+    // SWITCH BETWEEN COLORS ON CLICK
+    if (compra_status === 0) {
+        em_mao.style.backgroundColor = '#FD8D81';
+        compra_status = 1;
+        
+        calcularPortes();
+    } else {
+        em_mao.style.backgroundColor = '#85E298';
+        compra_status = 0;
+
+        total -= global_portes;
+        global_portes = 0;
+
+        totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
+        totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
+    }
+
+    
+
+    
 }
+
 
 
 
@@ -1523,14 +1576,14 @@ document.getElementById('cart-icon').addEventListener('click', function() {
 document.getElementById('close-popup-span').addEventListener('click', function() {
     document.getElementById('cart-popup').style.display = 'none'; // Hide popup
     desconto_aplicado = false;
-    const name = document.getElementById('user-name').value.trim();
-    const name2 = document.getElementById('user-name2').value.trim();
-    const email = document.getElementById('user-email').value.trim();
-    const country = document.getElementById('user-country').value.trim();
-    const address = document.getElementById('user-address').value.trim();
-    const postalcode = document.getElementById('user-postalcode').value.trim();
-    const phone = document.getElementById('user-phone').value.trim();
-    const nif = document.getElementById('user-nif').value.trim();
+    const name = document.getElementById('user-name');
+    const name2 = document.getElementById('user-name2');
+    const email = document.getElementById('user-email');
+    const country = document.getElementById('user-country');
+    const address = document.getElementById('user-address');
+    const postalcode = document.getElementById('user-postalcode');
+    const phone = document.getElementById('user-phone');
+    const nif = document.getElementById('user-nif');
 
     name.value = '';
     name2.value = '';
@@ -1590,11 +1643,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // DISABLE DEV TOOLS
-document.addEventListener('contextmenu', (e) => e.preventDefault());
+/*document.addEventListener('contextmenu', (e) => e.preventDefault());
 
 function ctrlShiftKey(e, keyCode) {
   return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-}
+}*/
 
 /*document.onkeydown = (e) => {
   // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
