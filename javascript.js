@@ -122,7 +122,7 @@ const products_gomas = [
     { id: 104, name: "Amoras brancas", image: "https://i.ibb.co/Y01NzD8/104.jpg" },
     { id: 105, name: "Búzios e conchas", image:"https://i.ibb.co/pvC66wWL/411.jpg"},
 
-    { id: 99999, name: "Saco individual", price: 0.10 , image:"images/99999.jpeg"},  
+    { id: 99999, name: "Saco individual", price: 0.10 , image:"images/99999.jpeg", peso: 5},  
 ];
 
 const products_tuboslinhas = [
@@ -468,16 +468,21 @@ function updateCartPopup() {
         itemElement.classList.add('cart-item');
         
         itemElement.innerHTML = `
-            <div class="cart-item-content">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image" />
-                <div class="cart-item-details">
-                    <p>${item.name}${item.id >= 10000 && item.id < 99994 ? `<br>${item.peso >= 1 ? `${item.peso} kg` : `${item.peso*1000} gramas`}` : ''}</p>
-                    <p> ${`${item.price.toFixed(2)}€${item.quantity > 1 ? ` x ${item.quantity}` : ''}`}</p>
+                <div class="cart-item-content">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image" />
+                    <div class="cart-item-details">
+                        <p>${item.name}${item.id >= 10000 && item.id < 99994 ? `<br>${item.peso >= 1 ? `${item.peso} kg` : `${item.peso * 1000} gramas`}` : ''}</p>
+                        <p> ${`${(item.price * item.quantity).toFixed(2)}€`}</p>
+                        <div class="quantity-controls">
+                            <button class="decrease-qty" data-index="${index}">-</button>
+                            <span class="item-quantity">${item.quantity}</span>
+                            <button class="increase-qty" data-index="${index}">+</button>
+                        </div>
+                    </div>
+                    <button class="delete-item" data-index="${index}">
+                        <i class="fa fa-trash" style="font-size: 1.2rem;"></i>
+                    </button>
                 </div>
-                <button class="delete-item" data-index="${index}">
-                    <i class="fa fa-trash" style="font-size: 1.2rem;"></i>
-                </button>
-            </div>
         `;
 
         if(item.quantity){
@@ -529,6 +534,50 @@ function updateCartPopup() {
             updateCartPopup(); // Refresh cart popup
         });
     });
+    document.querySelectorAll('.decrease-qty').forEach(button => {
+        button.addEventListener('click', function() {
+            let index = this.getAttribute('data-index');
+
+            const product = cart[index];
+
+            if(product.quantity > 1){
+                product.quantity -= 1;
+            }
+            else{
+                showNotification(`${product.name} foi removido/a!`);
+
+                if(product.id == 99999){
+                    var checkbox = document.getElementById("sacoINDIVIDUAL");
+                    var quantityInput = document.getElementById("quantity");
+
+                    checkbox.checked = false;
+                    quantityInput.value = null;
+                }
+
+                product.quantity = 0;
+
+                cart.splice(index, 1); // Remove item from cart
+            }
+            
+            updateCartCount(); // Update cart count
+            updateCartPopup(); // Refresh cart popup
+        });
+    });
+    document.querySelectorAll('.increase-qty').forEach(button => {
+        button.addEventListener('click', function() {
+            let index = this.getAttribute('data-index');
+
+            const product = cart[index];
+
+            product.quantity += 1;
+
+            updateCartCount(); // Update cart count
+            updateCartPopup(); // Refresh cart popup
+        });
+    });
+
+
+
 
     saveCartToLocalStorage(); // Guardar mudanças no Local Storage
 }
@@ -1379,7 +1428,12 @@ function checkInputs() {
     const isEmailValid = emailRegex.test(email);
 
     // Enable the download button if all fields are filled and validated
-    const isFormValid = name && name2 && address && country && phone && postalcode && email && isEmailValid;
+    if(compra_status == 1){
+        isFormValid = name && name2 && address && country && phone && email && isEmailValid;
+    }
+    else{
+        isFormValid = name && name2 && address && country && phone && postalcode && email && isEmailValid && address;
+    }
 
     // Enable/Disable the download button based on validation
     const downloadBtn = document.getElementById('download-pdf-btn');

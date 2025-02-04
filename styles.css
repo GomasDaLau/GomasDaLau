@@ -734,3 +734,25 @@
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
 }
+
+
+
+.quantity-controls button {
+  background-color: #8ab0d8;
+  color: white;
+  border: none;
+  width: 20px;
+  height: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.quantity-controls button:hover {
+  background-color: #65819e;
+}
+
+.quantity-controls button:active {
+  transform: scale(0.95);
+}
