@@ -1105,13 +1105,13 @@ function generatePDF() {
     yOffset += 15;
 
     // Get user inputs
-    const name = document.getElementById('user-name').value;
-    const name2 = document.getElementById('user-name2').value;
-    const email = document.getElementById('user-email').value;
-    const country = document.getElementById('user-country').value;
-    const address = document.getElementById('user-address').value;
-    const postalcode = document.getElementById('user-postalcode').value;
-    const phone = document.getElementById('user-phone').value;
+    let name = document.getElementById('user-name').value;
+    let name2 = document.getElementById('user-name2').value;
+    let email = document.getElementById('user-email').value;
+    let country = document.getElementById('user-country').value;
+    let address = document.getElementById('user-address').value;
+    let postalcode = document.getElementById('user-postalcode').value;
+    let phone = document.getElementById('user-phone').value;
 
     // Add personal details to the PDF
     doc.setFontSize(12);
@@ -1219,22 +1219,20 @@ function generatePDF() {
     // Download the PDF
     doc.save('carrinho-gomasdalau.pdf');
 
-    // Convert to Blob and create a URL
-    const pdfBlob = doc.output('blob');
-    const pdfUrl = URL.createObjectURL(pdfBlob);
-
-    // Share on WhatsApp
-    shareOnWhatsApp(pdfUrl);
 
     updateCartCount();
     updateCartPopup();
-}
-function shareOnWhatsApp(pdfUrl) {
-    const phoneNumber = "351934456979"; // Change this to the recipient's number
-    const message = encodeURIComponent("Aqui está o seu recibo. Baixe o PDF abaixo:");
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message} ${pdfUrl}`;
 
-    window.open(whatsappUrl, '_blank');
+    // Save PDF as Blob and create a download URL
+    const pdfBlob = doc.output("blob");
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+
+    // Create a WhatsApp share link
+    const message = encodeURIComponent("Quero realizar uma compra. Vou enviar o pdf do meu carrinho!");
+    const whatsappUrl = `https://wa.me/351934456979?text=${message}`;
+
+    // Open WhatsApp sharing window
+    window.open(whatsappUrl, "_blank");
 }
 
 
