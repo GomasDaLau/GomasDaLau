@@ -1567,7 +1567,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // DISABLE DEV TOOLS
-/*document.addEventListener('contextmenu', (e) => e.preventDefault());
+document.addEventListener('contextmenu', (e) => e.preventDefault());
 
 function ctrlShiftKey(e, keyCode) {
   return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
@@ -1583,4 +1583,4 @@ document.onkeydown = (e) => {
     (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
   )
     return false;
-};*/
+};
