@@ -1523,6 +1523,23 @@ document.getElementById('cart-icon').addEventListener('click', function() {
 document.getElementById('close-popup-span').addEventListener('click', function() {
     document.getElementById('cart-popup').style.display = 'none'; // Hide popup
     desconto_aplicado = false;
+    const name = document.getElementById('user-name').value.trim();
+    const name2 = document.getElementById('user-name2').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    const country = document.getElementById('user-country').value.trim();
+    const address = document.getElementById('user-address').value.trim();
+    const postalcode = document.getElementById('user-postalcode').value.trim();
+    const phone = document.getElementById('user-phone').value.trim();
+    const nif = document.getElementById('user-nif').value.trim();
+
+    name.value = '';
+    name2.value = '';
+    email.value = '';
+    country.value = '';
+    address.value = '';
+    postalcode.value = '';
+    phone.value = '';
+    nif.value = '';
 });
 
 
@@ -1577,7 +1594,7 @@ function ctrlShiftKey(e, keyCode) {
   return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
 }
 
-document.onkeydown = (e) => {
+/*document.onkeydown = (e) => {
   // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
   if (
     event.keyCode === 123 ||
@@ -1587,4 +1604,4 @@ document.onkeydown = (e) => {
     (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
   )
     return false;
-};
+};*/
