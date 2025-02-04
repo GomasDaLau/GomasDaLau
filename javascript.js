@@ -1392,6 +1392,9 @@ function switchToDetails() {
     cartTitle.textContent = 'Adicionar dados 📝';
     cartView.style.display = 'none';
     detailsView.style.display = 'block';
+
+    const downloadbtn = document.getElementById('download-pdf-btn');
+    downloadbtn.disabled = false;
     
 }
 
