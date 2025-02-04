@@ -1535,11 +1535,13 @@ document.getElementById('close-popup-span').addEventListener('click', function()
     name.value = '';
     name2.value = '';
     email.value = '';
-    country.value = '';
+    country.value = "";
     address.value = '';
     postalcode.value = '';
     phone.value = '';
     nif.value = '';
+
+    global_portes = 0;
 });
 
 
