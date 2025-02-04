@@ -1459,7 +1459,7 @@ function checkInputs_portes() {
 
     // Enable the download button if all fields are filled and validated
     if(compra_status == 1){
-        isFormValid = name && name2 && address && country && phone && email && isEmailValid;
+        isFormValid = name && name2 && country && phone && email && isEmailValid;
     }
     else{
         isFormValid = name && name2 && address && country && phone && postalcode && email && isEmailValid && address;
