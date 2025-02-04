@@ -1400,8 +1400,17 @@ function checkInputs_portes() {
     // Validate inputs
     const isEmailValid = emailRegex.test(email);
 
+
+    const isFormValid = null;
+
     // Enable the download button if all fields are filled and validated
-    const isFormValid = name && name2 && address && country && phone && postalcode && email && isEmailValid;
+    if(compra_status == 1){
+        isFormValid = name && name2 && address && country && phone && email && isEmailValid;
+    }
+    else{
+        isFormValid = name && name2 && address && country && phone && postalcode && email && isEmailValid && address;
+    }
+    
 
     // Enable/Disable the download button based on validation
     const downloadBtn = document.getElementById('download-pdf-btn');
@@ -1523,6 +1532,14 @@ function em_mao(){
     if (compra_status === 0) {
         em_mao.style.backgroundColor = '#FD8D81';
         compra_status = 1;
+
+        const address = document.getElementById('user-address');
+        const postal_code = document.getElementById('user-postalcode');
+        const country = document.getElementById('user-country');
+
+        address.disabled = false;
+        postal_code.disabled = false;
+        country.disabled = false;
         
         calcularPortes();
     } else {
@@ -1531,6 +1548,16 @@ function em_mao(){
 
         total -= global_portes;
         global_portes = 0;
+
+        const address = document.getElementById('user-address');
+        const postal_code = document.getElementById('user-postalcode');
+        const country = document.getElementById('user-country');
+        address.value = '';
+        postal_code.value = '';
+        country.value = '';
+        address.disabled = true;
+        postal_code.disabled = true;
+        country.disabled = true;
 
         totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
         totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
