@@ -1314,7 +1314,6 @@ function showNotification(message) {
 
 
 // ADICIONAR DADOS
-const nextBtn = document.getElementById('next-btn');
 const cartView = document.getElementById('cart-view');
 const detailsView = document.getElementById('details-view');
 const cartTitle = document.getElementById('cart-title');
