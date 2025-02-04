@@ -1,0 +1,8 @@
+.produtos_boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 75%;
+}

@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="utils.css" type="text/css" >
+    <link rel="stylesheet" href="styles.css" type="text/css" >
+    <link rel="stylesheet" href="css/tuboslinhas.css" type="text/css" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="icon" type="image/png" href="images/candy.png">
+
+
+    <title>GOMASDALAU</title>
+</head>
+<body>
+    <div class="emojis">
+
+        <div class="emoji">
+            🍬
+        </div>
+        <div class="emoji">
+            🍫
+        </div>
+        <div class="emoji">
+            🍰
+        </div>
+        <div class="emoji">
+            🧁
+        </div>
+        <div class="emoji">
+            🍭
+        </div>
+        <div class="emoji">
+            🧸
+        </div>
+        <div class="emoji">
+            🍓
+        </div>
+        <div class="emoji">
+            🐻‍❄️
+        </div>
+        <div class="emoji">
+            🌈
+        </div>
+        <div class="emoji">
+            📍
+        </div>
+        
+      </div>
+
+      <header> 
+        <nav class="nav_bar">
+            <div class="menu_1">
+            <div class="menu">
+                <button id="menu-toggle" aria-label="Abrir menu">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <div id="menu-content" class="menu-dropdown">
+                    <ul>
+                        <li><a href="index.html">Todos os produtos</a></li>
+                        <li><a href="tuboslinhas.html">Tubos e Linhas</a></li>
+                        <li><a href="linguas.html">Linguas</a></li>
+                        <li><a href="pastilhas.html">Pastilhas</a></li>
+                        <li><a href="gomasxxl.html">Gomas XXL</a></li>
+                        <li><a href="gomaspicantes.html">Gomas Picantes</a></li>
+                        <li><a href="marshmallows.html">Marshmallows</a></li>
+                        <li><a href="chocolates.html">Chocolates</a></li>
+                        <li><a href="boxes.html">Boxes</a></li>
+                        <li><a href="outros.html">Outros</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="nomeloja" onclick="window.location.href='index.html'" onmouseover="this.style.cursor='pointer'">
+                <span style="color: #f1a1c7;">G</span>
+                <span style="color: #FD8D81;">O</span>
+                <span style="color: #46BBA8;">M</span>
+                <span style="color: #80e795e6;">A</span>
+                <span style="color: #f1db5f;">S</span>
+                <span style="color: #f1a1c7; margin-left:5%">D</span>
+                <span style="color: #FD8D81; margin-right:5%">A</span>
+                <span style="color: #46BBA8;">L</span>
+                <span style="color: #80e795e6;">A</span>
+                <span style="color: #f1db5f;">U</span>
+            </div>
+        </div>
+            <ul>
+                <li>
+                    <a href="https://www.tiktok.com/@gomasdalau" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/+351934456979" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li>
+                    <a id="cart-icon" onclick="updateCartPopup()">
+                        <i class="fa fa-shopping-cart" style="font-size:2rem;"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+
+    <!-- Cart Popup -->
+    <div id="cart-popup" class="cart-popup">
+        <div class="cart-popup-content">
+            <div id="close-popup" class="close-popup" onclick="switchToCart()">
+                <span id="close-popup-span">&times;</span>
+            </div>
+            <h3 id="cart-title">Carrinho 🛒</h3>
+            <h5 id="cart-error" style="color:red;"></h5>
+            
+            <div id="cart-view">
+                <div id="cart-items-list"></div> <!-- Cart items will be displayed here -->
+                <p id="total-price">Total: 0€</p>
+                <input type="checkbox" id="sacoINDIVIDUAL" name="extra-bag" value="Quer um saco extra para separar as gomas?" onchange="toggleInput()">
+                <label for="sacoINDIVIDUAL">Quer um saco extra para separar as gomas?</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="100" disabled onchange="updateNSacos()">
+                <button id="next-btn" onclick="switchToDetails()">Continuar</button>
+            </div>
+
+            <div id="details-view" style="display: none;">
+                <div class="details">
+                    <div>
+                        <input type="text" id="user-name" placeholder="Primeiro Nome" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="text" id="user-name2" placeholder="Apelido" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="email" id="user-email" placeholder="Email" autocomplete="off">
+                    </div>
+                    <div>
+                        <select id="user-country" name="country">
+                            <option value="" disabled selected>Escolha o seu país</option>
+                            <option value="Alemanha">Alemanha</option>
+                            <option value="Áustria">Áustria</option>
+                            <option value="Bélgica">Bélgica</option>
+                            <option value="Eslováquia">Eslováquia</option>
+                            <option value="Eslovénia">Eslovénia</option>
+                            <option value="França">França</option>
+                            <option value="Grécia">Grécia</option>
+                            <option value="Holanda">Holanda</option>
+                            <option value="Hungria">Hungria</option>
+                            <option value="Irlanda">Irlanda</option> 
+                            <option value="Itália">Itália</option>
+                            <option value="Lituânia">Lituânia</option>
+                            <option value="República Checa">República Checa</option>
+                            <option value="Estónia">Estónia</option>
+                            <option value="Finlândia">Finlândia</option>
+                            <option value="Letónia">Letónia</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Polónia">Polónia</option>
+                            <option value="Suécia">Suécia</option>
+                            <option value="Dinamarca">Dinamarca</option>
+                            <option value="Espanha">Espanha</option>
+                            <option value="Portugal Continental">Portugal Continental</option>
+                            <option value="Portugal Ilhas">Portugal Ilhas</option>
+                        </select>                   
+                    </div>
+                    <div>
+                        <input type="text" id="user-address" placeholder="Morada" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="text" id="user-postalcode" placeholder="Código postal" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="number" id="user-phone" placeholder="Telefone" autocomplete="off">
+                    </div> 
+                    <div>
+                        <input type="number" id="user-nif" placeholder="NIF (fatura)" autocomplete="off">
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content: center;">
+                    <div style="width:80%;">
+                        <p id="total-price2">Total: 0€</p>
+                        <div class="desconto">
+                            <input type="text" id="desconto" placeholder="Código de desconto" autocomplete="off"> 
+                            <button id="aplicar-desconto" onclick="applyDiscount()">Aplicar</button>
+                        </div>
+                        
+                        <div class="details-btns">
+                            <button id="back-btn" onclick="switchToCart()">Voltar ao Carrinho</button>
+                            <button id="download-pdf-btn" onclick="generatePDF()" disabled>Download PDF</button>
+                        </div>
+                        </div>  
+                    
+                    </div>
+                 </div>
+        </div>
+    </div>
+    
+
+    <section class="titulo"> 
+        <p id="titulo_loja">
+            <span style="color: #f1a1c7; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">G</span>
+            <span style="color: #FD8D81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">O</span>
+            <span style="color: #46BBA8; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">M</span>
+            <span style="color: #80e795e6; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #f1db5f; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">S</span>
+            <span style="color: #f1a1c7; margin-left:1.2%; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">D</span>
+            <span style="color: #FD8D81; margin-right:1.2%; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #46BBA8; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">L</span>
+            <span style="color: #80e795e6; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #f1db5f; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">U</span>
+       </p>        
+    </section>
+
+    <div class="links">
+         <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600" onclick="window.location.href='gomastuboslinhaslinguas.html'">
+            Gomas + Tubos + Linhas + Línguas ao Kilo
+        </button>
+    </div>
+    <div>
+        <label id="kilos-label" for="kilos">Peso em Kilos (100gr = 0.1):</label>
+        <input id="kilos" type="number" id="kilos" name="kilos" min="1" max="100" onchange="updateCartPopup(); updateCartCount();">
+        <button id="add_kilos" onclick="addKilos()" disabled>Adicionar (selecione o peso)</button>
+        <button id="add_kilos_random" onclick="addKilosRandom()" disabled>Adicionar (mix)</button>
+    </div>
+    
+    <input type="text" id="search-bar" placeholder="Procurar..." onkeyup="searchProducts()">
+
+
+    <main>
+        <section class="section_produtos">
+            <div class="produtos_header">
+            <p id="titulo_produtos">GOMAS AO KILO</p>
+
+            <div class="produtos">
+                <div class="produto" id="1">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/WG9Cr06/1.jpg" alt="Gomas1" border="0">
+                        <div class="overlay">
+                            <p class="nome">Aros de pêssego</p>
+                            <!-- <p class="descricao">0.35€ cada</p> -->
+                            <button class="selecionar" data-id="1">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="2">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/K7vfMR6/2.jpg" alt="Gomas2" border="0">
+                        <div class="overlay">
+                            <p class="nome">Beijinhos de morango e nata</p>
+                            <!-- <p class="descricao">0.15€ cada</p> -->
+                            <button class="selecionar" data-id="2">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="3">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/ySfPymq/3.jpg" alt="Gomas3" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tacos de coca cola</p>
+                            <!-- <p class="descricao">0.30€ cada</p> -->
+                            <button class="selecionar" data-id="3">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="4">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/4ZPYJPZ/4.jpg" alt="Gomas4" border="0">
+                        <div class="overlay">
+                            <p class="nome">Iglos recheado</p>
+                            <!-- <p class="descricao">0.15€ cada<br>0.25€ desconto a cada 10 gomas</p> -->
+                            <button class="selecionar" data-id="4">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="5">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/HhpXQXk/5.jpg" alt="5" border="0">
+                        <div class="overlay">
+                            <p class="nome">Natillas leite creme</p>
+                            <!-- <p class="descricao">0.25€ cada</p> -->
+                            <button class="selecionar" data-id="5">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="6">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/fMNrRY3/6.jpg" alt="6" border="0">
+                        <div class="overlay">
+                            <p class="nome">Corações de pêssego</p>
+                            <!-- <p class="descricao">0.15€ cada<br>0.25€ desconto a cada 10 gomas</p> -->
+                            <button class="selecionar" data-id="6">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/GvHpVZX/7.jpg" alt="7" border="0">
+                        <div class="overlay">
+                            <p class="nome">Lábios de morango</p>
+                            <!-- <p class="descricao">0.25€ cada</p> -->
+                            <button class="selecionar" data-id="7">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="8">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/bRpMDBM/8.jpg" alt="8" border="0">
+                        <div class="overlay">
+                            <p class="nome">Copos de gelado recheado</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="8">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="9">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/jzksPH2/9.jpg" alt="9" border="0">
+                        <div class="overlay">
+                            <p class="nome">Aros tutti fruit</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="9">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="10">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/S5sYKQN/10.jpg" alt="10" border="0">
+                        <div class="overlay">
+                            <p class="nome">Aros de morango</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="10">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="11">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/9bXT4gy/11.jpg" alt="11" border="0">
+                        <div class="overlay">
+                            <p class="nome">Ursinhos</p>
+                            <!-- <p class="descricao">100g - 1g</p> -->
+                            <button class="selecionar" data-id="11">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="12">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/m6PdGDm/12.jpg" alt="12" border="0">
+                        <div class="overlay">
+                            <p class="nome">Lágrimas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="12">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="13">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/GtnSHWZ/13.jpg" alt="13" border="0">
+                        <div class="overlay">
+                            <p class="nome">Mangas recheadas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="13">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="14">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/HxMnd1w/14.jpg" alt="14" border="0">
+                        <div class="overlay">
+                            <p class="nome">Jellys baby</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="14">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="15">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/CtmGDNJ/15.jpg" alt="15" border="0">
+                        <div class="overlay">
+                            <p class="nome">Amoras vermelhas</p>
+                            <!-- <p class="descricao">0.35€ cada<br>a partir de 5 gomas fica a 0.30€ cada</p> -->
+                            <button class="selecionar" data-id="15">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="16">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/SVqYW5M/16.jpg" alt="16" border="0">
+                        <div class="overlay">
+                            <p class="nome">Talhadas de manga</p>
+                            <!-- <p class="descricao">0.25€ cada</p> -->
+                            <button class="selecionar" data-id="16">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="17">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/72F6d3X/17.jpg" alt="17" border="0">
+                        <div class="overlay">
+                            <p class="nome">Estrelas de framboesa</p>
+                            <!-- <p class="descricao">0.30€ cada</p> -->
+                            <button class="selecionar" data-id="17">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="18">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/nP8L6KC/18.jpg" alt="18" border="0">
+                        <div class="overlay">
+                            <p class="nome">Frutos dos bosques recheados</p>
+                            <!-- <p class="descricao">0.20€ cada</p> -->
+                            <button class="selecionar" data-id="18">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="19">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/PgZZn3k/19.jpg" alt="19" border="0">
+                        <div class="overlay">
+                            <p class="nome">Polvos ácidos</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="19">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="20">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/KzJj1cm/20.jpg" alt="20" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tartitas de framboesa</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="20">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="21">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/C5fbgc1/21.jpg" alt="21" border="0">
+                        <div class="overlay">
+                            <p class="nome">Bananas recheadas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="21">Adiconar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="22">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/T87X5XC/22.jpg" alt="22" border="0">
+                        <div class="overlay">
+                            <p class="nome">Presuntos com açúcar</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="22">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="23">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/fdGrJHR/23.jpg" alt="23" border="0">
+                        <div class="overlay">
+                            <p class="nome">Ovos</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="23">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="24">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/NgRcvd7/24.jpg" alt="24" border="0">
+                        <div class="overlay">
+                            <p class="nome">Chupetas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="24">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="25">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/KN81R5G/25.jpg" alt="25" border="0">
+                        <div class="overlay">
+                            <p class="nome">Morangos recheados</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="25">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="26">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/vkSsxTK/26.jpg" alt="26" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tangerinas</p>
+                           <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="26">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="27">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/Gxn5jKr/27.jpg" alt="27" border="0">
+                        <div class="overlay">
+                            <p class="nome">Melões</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="27">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="28">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/kq3YSm7/28.jpg" alt="28" border="0">
+                        <div class="overlay">
+                            <p class="nome">Cerejas ácidas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="28">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="29">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/PTp4Fh4/29.jpg" alt="29" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tijolos de framboesa</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="29">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="30">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/MDJFmpk/30.jpg" alt="30" border="0">
+                        <div class="overlay">
+                            <p class="nome">Pinguins</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="30">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="31">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/D9GLgfV/31.jpg" alt="31" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tijolos arco íris ácidos</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="31">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="32">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/2nzkpSP/32.jpg" alt="32" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tacos arco íris ácidos</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="32">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="33">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/qsjBrmk/33.jpg" alt="33" border="0">
+                        <div class="overlay">
+                            <p class="nome">Fruit attack</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="33">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="34">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/mN1t6jh/34.jpg" alt="34" border="0">
+                        <div class="overlay">
+                            <p class="nome">Chips ácidas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="34">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="35">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/GMWRgcv/35.jpg" alt="35" border="0">
+                        <div class="overlay">
+                            <p class="nome">Pudim flan</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="35">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="36">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/mF7Lnfg/36.jpg" alt="36" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tartitas de melancia ácidas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="36">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="37">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/4NthCBN/37.jpg" alt="37" border="0">
+                        <div class="overlay">
+                            <p class="nome">Pirâmides</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="37">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="38">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/KXKS1Cp/38.jpg" alt="38" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tartitas morango e nata</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="38">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="39">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/Lx0zsMK/39.jpg" alt="39" border="0">
+                        <div class="overlay">
+                            <p class="nome">Talhadas de melancia</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="39">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="40">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/zJZRNPN/40.jpg" alt="40" border="0">
+                        <div class="overlay">
+                            <p class="nome">Corações recheados de framboesa</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="40">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="41">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/R6Vf0Sb/41.jpg" alt="41" border="0">
+                        <div class="overlay">
+                            <p class="nome">Corações recheados de morango</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="41">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="42">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/nCXCBZ7/42.jpg" alt="42" border="0">
+                        <div class="overlay">
+                            <p class="nome">Cérebros recheados</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="42">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="43">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/7S46KqX/43.jpg" alt="43" border="0">
+                        <div class="overlay">
+                            <p class="nome">Twist de framboesa</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="43">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="44">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/SXMKqJr/44.jpg" alt="44" border="0">
+                        <div class="overlay">
+                            <p class="nome">Beijinhos de framboesa</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="44">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="45">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/GpCXR8g/45.jpg" alt="45" border="0">
+                        <div class="overlay">
+                            <p class="nome">Twist de morango</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="45">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="46">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/YkyHnSn/46.jpg" alt="46" border="0">
+                        <div class="overlay">
+                            <p class="nome">Ossos</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="46">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="47">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/89hH36p/47.jpg" alt="47" border="0">
+                        <div class="overlay">
+                            <p class="nome">Ananás</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="47">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="48">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/MBZPKjr/48.jpg" alt="48" border="0">
+                        <div class="overlay">
+                            <p class="nome">Fatias de pizza</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="48">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="49">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/31gQw4s/49.jpg" alt="49" border="0">
+                        <div class="overlay">
+                            <p class="nome">Morangos silvestres</p>
+                           <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="49">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="50">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/sVyvMSL/50.jpg" alt="50" border="0">
+                        <div class="overlay">
+                            <p class="nome">Moedas ácidas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="50">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="51">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/8XLztkD/51.jpg" alt="51" border="0">
+                        <div class="overlay">
+                            <p class="nome">Beijinhos de morango</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="51">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="52">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/LZM2d41/52.jpg" alt="52" border="0">
+                        <div class="overlay">
+                            <p class="nome">Regalliz de Maracujá</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="52">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="53">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/k6FCxG9/53.jpg" alt="53" border="0">
+                        <div class="overlay">
+                            <p class="nome">Gelados</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="53">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="54">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/kynkTt4/54.jpg" alt="54" border="0">
+                        <div class="overlay">
+                            <p class="nome">Regalliz de framboesa</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="54">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="55">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/sqPXWdw/55.jpg" alt="55" border="0">
+                        <div class="overlay">
+                            <p class="nome">Bananas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="55">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="56">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/CvhWxLm/56.jpg" alt="56" border="0">
+                        <div class="overlay">
+                            <p class="nome">Aros de morango grandes</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="56">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="57">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/FJ2SCB1/57.jpg" alt="57" border="0">
+                        <div class="overlay">
+                            <p class="nome">Terabytes morango</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="57">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="58">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/JQYghnR/58.jpg" alt="58" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tijolos de morango ácidos</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="58">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="59">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/1MZLtvF/59.jpg" alt="59" border="0">
+                        <div class="overlay">
+                            <p class="nome">Talhadas de framboesa ácidas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="59">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="60">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/xqQ25J3/60.jpg" alt="60" border="0">
+                        <div class="overlay">
+                            <p class="nome">Corações tricolor</p>
+                            <button class="selecionar" data-id="60">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="61">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/T0jwMSp/61.jpg" alt="61" border="0">
+                        <div class="overlay">
+                            <p class="nome">Ratos</p>
+                            <button class="selecionar" data-id="61">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="62">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/7Cs8XL5/62.jpg" alt="62" border="0">
+                        <div class="overlay">
+                            <p class="nome">Cerejas</p>
+                            <button class="selecionar" data-id="62">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="63">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/yktDg5F/63.jpg" alt="63" border="0">
+                        <div class="overlay">
+                            <p class="nome">Minhocas</p>
+                            <button class="selecionar" data-id="63">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto indisponivel" id="64">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/1T5N7cj/64.jpg" alt="64" border="0">
+                        <div class="overlay">
+                            <p class="nome">Talhadas de ananás</p>
+                            <button class="selecionar" data-id="64">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="65">
+                    <div class="img-container">
+                       <img src="https://i.ibb.co/v407yDJ/65.jpg" alt="65" border="0">
+                        <div class="overlay">
+                            <p class="nome">Morangos com recheio de natas</p>
+                            <button class="selecionar" data-id="65">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="66">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/G5j9xrj/66.jpg" alt="66" border="0">
+                        <div class="overlay">
+                            <p class="nome">Cenouras</p>
+                            <button class="selecionar" data-id="66">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="67">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/Yh44Tk7/67.jpg" alt="67" border="0">
+                        <div class="overlay">
+                            <p class="nome">Amoras de framboesa</p>
+                            <button class="selecionar" data-id="67">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="68">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/3d5HmFp/68.jpg" alt="68" border="0">
+                        <div class="overlay">
+                            <p class="nome">Presuntos sem açúcar</p>
+                            <button class="selecionar" data-id="68">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="69">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/tHMKtY7/69.jpg" alt="69" border="0">
+                        <div class="overlay">
+                            <p class="nome">Minhocas com açúcar</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="69">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="70">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/BK93rNW/70.jpg" alt="70" border="0">
+                        <div class="overlay">
+                            <p class="nome">Amoras de morango e nata</p>
+                           <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="70">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="71">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/CVpyFCK/71.jpg" alt="71" border="0">
+                        <div class="overlay">
+                            <p class="nome">Coca colas</p>
+                            <!-- <p class="descricao">100g - 1€</p> -->
+                            <button class="selecionar" data-id="71">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="72">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/bJXwhpG/72.jpg" alt="72" border="0">
+                        <div class="overlay">
+                            <p class="nome">Chapéus mexicanos</p>
+                            <button class="selecionar" data-id="72">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="73">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/qWNLHjZ/73.jpg" alt="73" border="0">
+                        <div class="overlay">
+                            <p class="nome">Coca colas ácidas</p>
+                            <button class="selecionar" data-id="73">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="74">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/gWc3XVP/74.jpg" alt="74" border="0">
+                        <div class="overlay">
+                            <p class="nome">Mini mix ácido</p>
+                            <button class="selecionar" data-id="74">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="75">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/GnShgRX/75.jpg" alt="75" border="0">
+                        <div class="overlay">
+                            <p class="nome">Mega mix ácido</p>
+                            <button class="selecionar" data-id="75">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="76">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/zxX194J/76.jpg" alt="76" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tacos de framboesa ácidos</p>
+                            <button class="selecionar" data-id="76">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="77">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/CBbxzVf/77.jpg" alt="77" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tacos de melancia ácidos</p>
+                            <button class="selecionar" data-id="77">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="78">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/XtmvYY9/78.jpg" alt="78" border="0">
+                        <div class="overlay">
+                            <p class="nome">Pés ácidos</p>
+                            <button class="selecionar" data-id="78">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="79">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/D7BvrXM/79.jpg" alt="79" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tijolos de Morango e Nata</p>
+                            <button class="selecionar" data-id="79">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="80">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/nD8zNch/80.jpg" alt="80" border="0">
+                        <div class="overlay">
+                            <p class="nome">Macedónias</p>
+                            <button class="selecionar" data-id="80">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="81">
+                    <div class="img-container"> 
+                        <img src="https://i.ibb.co/Hz43wHr/81.jpg" alt="81" border="0">
+                        <div class="overlay">
+                            <p class="nome">Feijões</p>
+                            <button class="selecionar" data-id="81">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="82">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/3T5Rw23/82.jpg" alt="82" border="0">
+                        <div class="overlay">
+                            <p class="nome">Pirâmides de melancias recheadas</p>
+                            <button class="selecionar" data-id="82">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="83">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/GP0hG4t/83.jpg" alt="83" border="0">
+                        <div class="overlay">
+                            <p class="nome">Corações de pêssego recheados</p>
+                            <button class="selecionar" data-id="83">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="84">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/rsLvz6p/84.jpg" alt="84" border="0">
+                        <div class="overlay">
+                            <p class="nome">Maçãs</p>
+                            <button class="selecionar" data-id="84">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="85">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/G287nrP/85.jpg" alt="85" border="0">
+                        <div class="overlay">
+                            <p class="nome">Sapatilhas</p>
+                            <button class="selecionar" data-id="85">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="86">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/MCQwLdJ/86.jpg" alt="86" border="0">
+                        <div class="overlay">
+                            <p class="nome">Terabytes de kiwi</p>
+                            <button class="selecionar" data-id="86">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="87">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/7WBvbbG/87.jpg" alt="87" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tiras de Morango e Nata</p>
+                            <button class="selecionar" data-id="87">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="88">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/fF2k65Q/88.jpg" alt="88" border="0">
+                        <div class="overlay">
+                            <p class="nome">Dedos</p>
+                            <button class="selecionar" data-id="88">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="89">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/qFLsNCH/89.jpg" alt="89" border="0">
+                        <div class="overlay">
+                            <p class="nome">Torcidas de framboesa ácidas</p>
+                            <button class="selecionar" data-id="89">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="90">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/c2jZWS0/90.jpg" alt="90" border="0">
+                        <div class="overlay">
+                            <p class="nome">Torcidas de lima ácidas</p>
+                            <button class="selecionar" data-id="90">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="91">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/j3fmLCn/91.jpg" alt="91" border="0">
+                        <div class="overlay">
+                            <p class="nome">Conchas</p>
+                            <button class="selecionar" data-id="91">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto">
+                    <div class="img-container" id="92">
+                        <img src="https://i.ibb.co/WtT6Zn3/92.jpg" alt="92" border="0">
+                        <div class="overlay">
+                            <p class="nome">Escovas de dentes</p>
+                            <button class="selecionar" data-id="92">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="93">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/D8CDqPV/93.jpg" alt="93" border="0">
+                        <div class="overlay">
+                            <p class="nome">Amoras</p>
+                            <button class="selecionar" data-id="93">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="94">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/wpNc5bT/94.jpg" alt="94" border="0">
+                        <div class="overlay">
+                            <p class="nome">Pés</p>
+                            <button class="selecionar" data-id="94">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="95">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/1Gg4rYf/95.jpg" alt="95" border="0">
+                        <div class="overlay">
+                            <p class="nome">Goma de iogurte</p>
+                            <button class="selecionar" data-id="95">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="96">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/2c3VvFZ/96.jpg" alt="96" border="0">
+                        <div class="overlay">
+                            <p class="nome">Dentaduras</p>
+                            <button class="selecionar" data-id="96">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="97">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/Y8pVcrq/97.jpg" alt="97" border="0">
+                        <div class="overlay">
+                            <p class="nome">Caveiras recheadas</p>
+                            <button class="selecionar" data-id="97">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="98">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/9gFZrFq/98.jpg" alt="98" border="0">
+                        <div class="overlay">
+                            <p class="nome">Raquetes</p>
+                            <button class="selecionar" data-id="98">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="99">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/KF5TCqw/99.jpg" alt="99" border="0">
+                        <div class="overlay">
+                            <p class="nome">Cartuxos</p>
+                            <button class="selecionar" data-id="99">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="100">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/j3RW7M5/100.jpg" alt="100" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tiras de melancia ácidas</p>
+                            <button class="selecionar" data-id="100">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="101">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/fppJktn/101.jpg" alt="101" border="0">
+                        <div class="overlay">
+                            <p class="nome">Tijolos de Coca Cola ácidos</p>
+                            <button class="selecionar" data-id="101">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="102">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/9sx4W8D/102.jpg" alt="102" border="0">
+                        <div class="overlay">
+                            <p class="nome">Limões</p>
+                            <button class="selecionar" data-id="102">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="103">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/NmdJy8W/103.jpg" alt="103" border="0">
+                        <div class="overlay">
+                            <p class="nome">Torcidas de morango ácidas</p>
+                            <button class="selecionar" data-id="103">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="104">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/Y01NzD8/104.jpg" alt="104" border="0">
+                        <div class="overlay">
+                            <p class="nome">Amoras brancas</p>
+                            <button class="selecionar" data-id="104">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="105">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/pvC66wWL/411.jpg" alt="105" border="0">
+                        <div class="overlay">
+                            <p class="nome">Búzios e conchas</p>
+                            <button class="selecionar" data-id="105">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="ver-mais" class="ver-mais">Ver Mais</button>
+
+
+        </section>
+        <section class="info-section">
+            <div class="info-item">
+                <img src="images/shop.png" alt="Loja">
+                <h3>Catálogo Online disponível 24 horas</h3>
+                <p>Envia-nos mensagem pelo WhatsApp e respondemos-te assim que possível.</p>
+            </div>
+            <div class="info-item">
+                <img src="images/pay.png" alt="Pagamento">
+                <h3>Métodos de pagamentos</h3>
+                <p>MBWAY: 934456979 <b>ou</b> Transferência Bancária: PT50003503210009661790018 com comprovativo por whatsapp.</p>
+            </div>
+            <div class="info-item">
+                <img src="images/express-delivery.png" alt="Entregas">
+                <h3>Entregas</h3>
+                <p>Envios feitos pelos CTT Expresso com garantia de entrega em 24/48h em Potugal Continental e seguros com rastreamento.</p>
+            </div>
+        </section>
+    </main>
+
+    <button id="goToTop">↑</button>
+
+    <section class="contactos">
+        <div class="contactos-item">
+            <h3>Morada</h3>
+            <p>Coimbra</p>
+        </div>
+        <div class="contactos-item">
+            <h3>Liga-nos</h3>
+            <p>+351 934456979</p>
+        </div>
+        <div class="contactos-item">
+            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer" style="display:inline-block">
+                <img src="images/livro_reclamacao.png" alt="livro_reclamacoes">
+            </a>
+        </div>
+    </section>
+    <footer>
+        <p>
+        &copy; 2025 
+        <a href="https://github.com/BeatrizMaia02" target="_blank">Beatriz Maia</a> 
+        & <a href="https://github.com/joaosantoss12" target="_blank">João Santos</a | All rights reserved
+    </p>
+    </footer>
+
+    <script src="javascript.js"></script>
+    
+</body>
+</html>

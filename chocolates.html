@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="utils.css" type="text/css" >
+    <link rel="stylesheet" href="styles.css" type="text/css" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="icon" type="image/png" href="images/candy.png">
+
+
+    <title>GOMASDALAU</title>
+</head>
+<body>
+    <div class="emojis">
+
+        <div class="emoji">
+            🍬
+        </div>
+        <div class="emoji">
+            🍫
+        </div>
+        <div class="emoji">
+            🍰
+        </div>
+        <div class="emoji">
+            🧁
+        </div>
+        <div class="emoji">
+            🍭
+        </div>
+        <div class="emoji">
+            🧸
+        </div>
+        <div class="emoji">
+            🍓
+        </div>
+        <div class="emoji">
+            🐻‍❄️
+        </div>
+        <div class="emoji">
+            🌈
+        </div>
+        <div class="emoji">
+            📍
+        </div>
+        
+      </div>
+
+      <header> 
+        <nav class="nav_bar">
+            <div class="menu_1">
+            <div class="menu">
+                <button id="menu-toggle" aria-label="Abrir menu">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <div id="menu-content" class="menu-dropdown">
+                    <ul>
+                        <li><a href="index.html">Todos os produtos</a></li>
+                        <li><a href="gomaskilo.html">Gomas ao Kilo</a></li>
+                        <li><a href="tuboslinhas.html">Tubos e Linhas</a></li>
+                        <li><a href="linguas.html">Linguas</a></li>
+                        <li><a href="pastilhas.html">Pastilhas</a></li>
+                        <li><a href="gomasxxl.html">Gomas XXL</a></li>
+                        <li><a href="gomaspicantes.html">Gomas Picantes</a></li>
+                        <li><a href="marshmallows.html">Marshmallows</a></li>
+                        <li><a href="boxes.html">Boxes</a></li>
+                        <li><a href="outros.html">Outros</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="nomeloja" onclick="window.location.href='index.html'" onmouseover="this.style.cursor='pointer'">
+                <span style="color: #f1a1c7;">G</span>
+                <span style="color: #FD8D81;">O</span>
+                <span style="color: #46BBA8;">M</span>
+                <span style="color: #80e795e6;">A</span>
+                <span style="color: #f1db5f;">S</span>
+                <span style="color: #f1a1c7; margin-left:5%">D</span>
+                <span style="color: #FD8D81; margin-right:5%">A</span>
+                <span style="color: #46BBA8;">L</span>
+                <span style="color: #80e795e6;">A</span>
+                <span style="color: #f1db5f;">U</span>
+            </div>
+        </div>
+            <ul>
+                <li>
+                    <a href="https://www.tiktok.com/@gomasdalau" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/+351934456979" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li>
+                    <a id="cart-icon" onclick="updateCartPopup()">
+                        <i class="fa fa-shopping-cart" style="font-size:2rem;"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+
+    <!-- Cart Popup -->
+    <div id="cart-popup" class="cart-popup">
+        <div class="cart-popup-content">
+            <div id="close-popup" class="close-popup" onclick="switchToCart()">
+                <span id="close-popup-span">&times;</span>
+            </div>
+            <h3 id="cart-title">Carrinho 🛒</h3>
+            <h5 id="cart-error" style="color:red;"></h5>
+            
+            <div id="cart-view">
+                <div id="cart-items-list"></div> <!-- Cart items will be displayed here -->
+                <p id="total-price">Total: 0€</p>
+                <input type="checkbox" id="sacoINDIVIDUAL" name="extra-bag" value="Quer um saco extra para separar as gomas?" onchange="toggleInput()">
+                <label for="sacoINDIVIDUAL">Quer um saco extra para separar as gomas?</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="100" disabled onchange="updateNSacos()">
+                <button id="next-btn" onclick="switchToDetails()">Continuar</button>
+            </div>
+
+            <div id="details-view" style="display: none;">
+                <div class="details">
+                    <div>
+                        <input type="text" id="user-name" placeholder="Primeiro Nome" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="text" id="user-name2" placeholder="Apelido" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="email" id="user-email" placeholder="Email" autocomplete="off">
+                    </div>
+                    <div>
+                        <select id="user-country" name="country">
+                            <option value="" disabled selected>Escolha o seu país</option>
+                            <option value="Alemanha">Alemanha</option>
+                            <option value="Áustria">Áustria</option>
+                            <option value="Bélgica">Bélgica</option>
+                            <option value="Eslováquia">Eslováquia</option>
+                            <option value="Eslovénia">Eslovénia</option>
+                            <option value="França">França</option>
+                            <option value="Grécia">Grécia</option>
+                            <option value="Holanda">Holanda</option>
+                            <option value="Hungria">Hungria</option>
+                            <option value="Irlanda">Irlanda</option> 
+                            <option value="Itália">Itália</option>
+                            <option value="Lituânia">Lituânia</option>
+                            <option value="República Checa">República Checa</option>
+                            <option value="Estónia">Estónia</option>
+                            <option value="Finlândia">Finlândia</option>
+                            <option value="Letónia">Letónia</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Polónia">Polónia</option>
+                            <option value="Suécia">Suécia</option>
+                            <option value="Dinamarca">Dinamarca</option>
+                            <option value="Espanha">Espanha</option>
+                            <option value="Portugal Continental">Portugal Continental</option>
+                            <option value="Portugal Ilhas">Portugal Ilhas</option>
+                        </select>                     
+                    </div>
+                    <div>
+                        <input type="text" id="user-address" placeholder="Morada" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="text" id="user-postalcode" placeholder="Código postal" autocomplete="off">
+                    </div>
+                    <div>
+                        <input type="number" id="user-phone" placeholder="Telefone" autocomplete="off">
+                    </div> 
+                    <div>
+                        <input type="number" id="user-nif" placeholder="NIF (fatura)" autocomplete="off">
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content: center;">
+                    <div style="width:80%;">
+                        <p id="total-price2">Total: 0€</p>
+                        <div class="desconto">
+                            <input type="text" id="desconto" placeholder="Código de desconto" autocomplete="off"> 
+                            <button id="aplicar-desconto" onclick="applyDiscount()">Aplicar</button>
+                        </div>
+                        
+                        <div class="details-btns">
+                            <button id="back-btn" onclick="switchToCart()">Voltar ao Carrinho</button>
+                            <button id="download-pdf-btn" onclick="generatePDF()" disabled>Download PDF</button>
+                        </div>
+                        </div>  
+                    
+                    </div>
+                 </div>
+        </div>
+    </div>
+    
+
+    <section class="titulo"> 
+        <p id="titulo_loja">
+            <span style="color: #f1a1c7; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">G</span>
+            <span style="color: #FD8D81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">O</span>
+            <span style="color: #46BBA8; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">M</span>
+            <span style="color: #80e795e6; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #f1db5f; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">S</span>
+            <span style="color: #f1a1c7; margin-left:1.2%; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">D</span>
+            <span style="color: #FD8D81; margin-right:1.2%; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #46BBA8; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">L</span>
+            <span style="color: #80e795e6; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #f1db5f; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">U</span>
+        </p>        
+    </section>
+
+
+    <input type="text" id="search-bar" placeholder="Procurar..." onkeyup="searchProducts()">
+
+
+    <main>
+        <section class="section_produtos">
+            <div class="produtos_header">
+
+            <p id="titulo_produtos">Chocolates</p>
+
+            <div class="produtos">
+                <div class="produto" id="7001">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/v4NFJWgT/159.jpg" alt="159" border="0">
+                        <div class="overlay">
+                            <p class="nome">Toblerone de chocolate branco</p>
+                            <p class="descricao">4€ cada</p>
+                            <button class="selecionar-cho" data-id="7001">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7002">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/Fk3jsTY0/160.jpg" alt="160" border="0">
+                        <div class="overlay">
+                            <p class="nome">Toblerone</p>
+                            <p class="descricao">4€ cada</p>
+                            <button class="selecionar-cho" data-id="7002">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7003">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/ZtL6t22/161.jpg" alt="161" border="0">
+                        <div class="overlay">
+                            <p class="nome">Lion</p>
+                            <p class="descricao">1.20€ cada</p>
+                            <button class="selecionar-cho" data-id="7003">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7004">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/HSWngQ8/162.jpg" alt="162" border="0">
+                        <div class="overlay">
+                            <p class="nome">Mars</p>
+                            <p class="descricao">1.10€ cada</p>
+                            <button class="selecionar-cho" data-id="7004">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7005">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/R4ZY5dgY/163.jpg" alt="163" border="0">
+                        <div class="overlay">
+                            <p class="nome">Snickers </p>
+                            <p class="descricao">1.10€ cada</p>
+                            <button class="selecionar-cho" data-id="7005">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7006">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/gNPQZDH/164.jpg" alt="164" border="0">
+                        <div class="overlay">
+                            <p class="nome">Lion de chocolate branco</p>
+                            <p class="descricao">1.20€ cada</p>
+                            <button class="selecionar-cho" data-id="7006">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7007">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/F9D8NpF/165.jpg" alt="165" border="0">
+                        <div class="overlay">
+                            <p class="nome">Twix</p>
+                            <p class="descricao">1.10€ cada</p>
+                            <button class="selecionar-cho" data-id="7007">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="produto" id="7008">
+                    <div class="img-container">
+                        <img src="https://i.ibb.co/LDS7D6Yd/166.jpg" alt="166" border="0">
+                        <div class="overlay">
+                            <p class="nome">Twix de chocolate branco</p>
+                            <p class="descricao">1.10€ cada</p>
+                            <button class="selecionar-cho" data-id="7008">Selecionar</button>
+                        </div>
+                    </div>
+                </div>
+               
+               
+               
+            </div>
+            <button id="ver-mais" class="ver-mais">Ver Mais</button>
+
+
+        </section>
+        <section class="info-section">
+            <div class="info-item">
+                <img src="images/shop.png" alt="Loja">
+                <h3>Catálogo Online disponível 24 horas</h3>
+                <p>Envia-nos mensagem pelo WhatsApp e respondemos-te assim que possível.</p>
+            </div>
+            <div class="info-item">
+                <img src="images/pay.png" alt="Pagamento">
+                <h3>Métodos de pagamentos</h3>
+                <p>MBWAY: 934456979 <b>ou</b> Transferência Bancária: PT50003503210009661790018 com comprovativo por whatsapp. </p>
+            </div>
+            <div class="info-item">
+                <img src="images/express-delivery.png" alt="Entregas">
+                <h3>Entregas</h3>
+                <p>Envios feitos pelos CTT Expresso com garantia de entrega em 24/48h em Potugal Continental e seguros com rastreamento.</p>
+            </div>
+        </section>
+    </main>
+
+    <button id="goToTop">↑</button>
+
+    
+    <section class="contactos">
+        <div class="contactos-item">
+            <h3>Morada</h3>
+            <p>Coimbra</p>
+        </div>
+        <div class="contactos-item">
+            <h3>Liga-nos</h3>
+            <p>+351 934456979</p>
+        </div>
+        <div class="contactos-item">
+            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer" style="display:inline-block">
+                <img src="images/livro_reclamacao.png" alt="livro_reclamacoes">
+            </a>
+        </div>
+    </section>
+    <footer>
+       <p>
+        &copy; 2025 
+        <a href="https://github.com/BeatrizMaia02" target="_blank">Beatriz Maia</a> 
+        & <a href="https://github.com/joaosantoss12" target="_blank">João Santos</a | All rights reserved
+        </p>
+    </footer>
+
+    <script src="javascript.js"></script>
+    
+</body>
+</html>

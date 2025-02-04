@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="utils.css" type="text/css" >
+    <link rel="stylesheet" href="css/index.css" type="text/css" >
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="icon" type="image/png" href="images/candy.png">
+
+
+    <title>GOMASDALAU</title>
+</head>
+<body>
+    <script>
+        // DISABLE DEV TOOLS
+        /*document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        function ctrlShiftKey(e, keyCode) {
+        return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+        }
+
+        document.onkeydown = (e) => {
+        // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+        if (
+            event.keyCode === 123 ||
+            ctrlShiftKey(e, 'I') ||
+            ctrlShiftKey(e, 'J') ||
+            ctrlShiftKey(e, 'C') ||
+            (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+        )
+            return false;
+        };*/
+    </script>
+
+    <div class="emojis">
+
+        <div class="emoji">
+            🍬
+        </div>
+        <div class="emoji">
+            🍫
+        </div>
+        <div class="emoji">
+            🍰
+        </div>
+        <div class="emoji">
+            🧁
+        </div>
+        <div class="emoji">
+            🍭
+        </div>
+        <div class="emoji">
+            🧸
+        </div>
+        <div class="emoji">
+            🍓
+        </div>
+        <div class="emoji">
+            🐻‍❄️
+        </div>
+        <div class="emoji">
+            🌈
+        </div>
+        <div class="emoji">
+            📍
+        </div>
+      </div>
+
+      <header> 
+        <nav class="nav_bar">
+            <div class="nomeloja">
+                <span style="color: #f1a1c7;">G</span>
+                <span style="color: #FD8D81;">O</span>
+                <span style="color: #46BBA8;">M</span>
+                <span style="color: #80e795e6;">A</span>
+                <span style="color: #f1db5f;">S</span>
+                <span style="color: #f1a1c7; margin-left:5%">D</span>
+                <span style="color: #FD8D81; margin-right:5%">A</span>
+                <span style="color: #46BBA8;">L</span>
+                <span style="color: #80e795e6;">A</span>
+                <span style="color: #f1db5f;">U</span>
+            </div>
+            <ul>
+                <li>
+                    <a href="https://www.tiktok.com/@gomasdalau" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/+351934456979" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+        <p id="titulo_loja">
+            <span style="color: #f1a1c7; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">G</span>
+            <span style="color: #FD8D81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">O</span>
+            <span style="color: #46BBA8; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">M</span>
+            <span style="color: #80e795e6; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #f1db5f; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">S</span>
+            <span style="color: #f1a1c7; margin-left:1.2%; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">D</span>
+            <span style="color: #FD8D81; margin-right:1.2%; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #46BBA8; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">L</span>
+            <span style="color: #80e795e6; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">A</span>
+            <span style="color: #f1db5f; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);">U</span>
+        </p>      
+        <section class="slideshow-container">
+            <div class="slideshow-frame">
+                <a id="slideshow-link" href="dianamorados.html">
+                    <img id="slideshow-image" src="images/slideshow1.png" alt="Slide 1">
+                </a>
+            </div>
+        </section>
+        
+        
+
+    <section class="produtos">
+        <div class="produto">
+            <a href="gomaskilo.html">
+                <img src="images/categoria-gomas.jpeg" alt="gomaskilo">
+                <p>Gomas ao kilo</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="tuboslinhas.html">
+                <img src="images/categoria-tuboslinhas.jpeg" alt="tuboslinhs">
+                <p>Tubos e Linhas</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="linguas.html">
+                <img src="images/categoria-linguas.jpg" alt="linguas">
+                <p>Linguas</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="pastilhas.html">
+                <img src="images/categoria-pastilhas.jpg" alt="pastilhas">
+                <p>Pastilhas</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="gomasxxl.html">
+                <img src="images/categoria-xxl.jpeg" alt="xxl">
+                <p>Gomas XXL</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="gomaspicantes.html">
+                <img src="images/categoria-picantes.jpg" alt="picantes">
+                <p>Gomas Picantes</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="marshmallows.html">
+                <img src="images/categoria-marshmallows.jpg" alt="marshmallows">
+                <p>Marshmallows</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="chocolates.html">
+                <img src="images/categoria-chocolates.jpg" alt="chocolates">
+                <p>Chocolates</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="boxes.html">
+                <img src="images/categoria-boxes.jpg" alt="boxes">
+                <p>Boxes</p>
+            </a>
+        </div>
+        <div class="produto">
+            <a href="outros.html">
+                <img src="images/203.jpeg" alt="outros">
+                <p>Outros</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="info-item">
+            <img src="images/shop.png" alt="Loja">
+            <h3>Catálogo Online disponível 24 horas</h3>
+            <p>Envia-nos mensagem pelo WhatsApp e respondemos-te assim que possível.</p>
+        </div>
+        <div class="info-item">
+            <img src="images/pay.png" alt="Pagamento">
+            <h3>Métodos de pagamentos</h3>
+            <p>MBWAY: 934456979 <b>ou</b> Transferência Bancária: PT50003503210009661790018 com comprovativo por whatsapp. </p>
+        </div>
+        <div class="info-item">
+            <img src="images/express-delivery.png" alt="Entregas">
+            <h3>Entregas</h3>
+            <p>Envios feitos pelos CTT Expresso com garantia de entrega em 24/48h em Potugal Continental e seguros com rastreamento.</p>
+        </div>
+    </section>
+
+
+    <section class="contactos">
+        <div class="contactos-item">
+            <h3>Morada</h3>
+            <p>Coimbra</p>
+        </div>
+        <div class="contactos-item">
+            <h3>Liga-nos</h3>
+            <p>+351 934456979</p>
+        </div>
+        <div class="contactos-item">
+            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer" style="display:inline-block">
+                <img src="images/livro_reclamacao.png" alt="livro_reclamacoes">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+       <p>
+        &copy; 2025 
+        <a href="https://github.com/BeatrizMaia02" target="_blank">Beatriz Maia</a> 
+        & <a href="https://github.com/joaosantoss12" target="_blank">João Santos</a | All rights reserved
+    </p>
+    </footer>
+
+    <script src="javascript-index.js"></script>
+
+</body>

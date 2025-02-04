@@ -1,0 +1,54 @@
+
+.links{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.links button{
+    color: #f3f3f3; /* Cor do texto ao passar o mouse */
+    background: linear-gradient(80deg, #46BBA8, #82a8be, #ca86c9, #f1a1c7); 
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    font-family: "SuperShiny";
+    font-size: 1.2rem;
+    text-transform: uppercase;  /* Deixa o texto em maiúsculas */
+    letter-spacing: 1px;        /* Dá um espaçamento entre as letras */
+    width: 28%;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
+    &:hover {
+        background: linear-gradient(80deg, #b3da79, #d7d661, #8ac9ca, #c7e4e5);
+    }
+}
+
+.links_gomas {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem de linha */
+    justify-content: center;
+    gap: 10px; /* Espaço entre os botões */
+    margin: 0 auto;
+    width: 60%;
+}
+
+.links_gomas button {
+    color: #f3f3f3;
+    background: linear-gradient(80deg, #46BBA8, #82a8be, #ca86c9, #f1a1c7);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: "SuperShiny";
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 48%; 
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.links_gomas button:hover {
+    background: linear-gradient(80deg, #b3da79, #d7d661, #8ac9ca, #c7e4e5);
+}

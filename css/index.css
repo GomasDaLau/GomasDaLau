@@ -1,0 +1,204 @@
+.slideshow-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Centraliza horizontalmente */
+    padding: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 1450px;
+    height: 500px;
+}
+
+
+/* Criar um efeito de borda neon */
+.slideshow-container::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 25px;
+    background: linear-gradient(270deg, 
+        #f1a1c7, #FD8D81, #46BBA8, #80e795e6, #f1db5f, #f1a1c7);
+    background-size: 300% 300%;
+    z-index: -1;
+    animation: borderAnimation 4s linear infinite;
+}
+
+/* Criar um fundo branco dentro da borda colorida */
+.slideshow-frame {
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animação do efeito neon a percorrer */
+@keyframes borderAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.slideshow-frame img {
+    width: 1450px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 75%;
+}
+
+.produto {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(55, 55, 55, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1;
+    /* Fallback para o fundo antes do hover */
+    background: #fff;
+}
+
+.produto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito no fundo ao passar o mouse */
+.produto:hover {
+    background: linear-gradient(45deg, #63aca9, #76cfea, #ad7bc1, #f1a1c7); /* Gradiente animado */
+    background-size: 400% 400%;
+    animation: gradientAnimation 4s ease infinite; /* Animação do gradiente */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preenche o container sem ser cortada */
+    display: block;
+    transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+}
+
+.produto p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    color: #bb608a; /* Cor inicial da letra */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    font-family: "SuperShiny";
+    width: 60%;
+}
+
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.produto:hover img {
+    opacity: 0.4; /* Torna a imagem mais transparente no hover */
+}
+
+.produto:hover p {
+    color: #f3f3f3; /* Cor do texto ao passar o mouse */
+    transform: translate(-50%, -50%) scale(1.1); /* Aumenta o texto ao passar o mouse */
+    background: linear-gradient(80deg, #46BBA8, #82a8be, #ca86c9, #f1a1c7); /* Gradiente animado */
+}
+
+
+/* Responsividade geral */
+
+@media screen and (max-width: 1470px) {
+    .slideshow-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .slideshow-frame img {
+        width: 100%;
+        height: auto;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .produtos {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 90%;
+    }
+    .slideshow-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .slideshow-frame img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .produtos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .slideshow-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .slideshow-frame img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav_bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .produtos {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-item {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}

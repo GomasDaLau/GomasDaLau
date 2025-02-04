@@ -1,0 +1,174 @@
+.produto-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.produto {
+    width: 40%; /* Largura do quadrado com a imagem principal */
+    position: relative;
+    margin-left: 20px;
+    max-height: 600px;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+    border-radius: 12px;
+    
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-nav button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+/* Para a imagem da caixa */
+#box-image img {
+    width: 50%; /* Torna a imagem da caixa mais fina */
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    border: #e7e7e7 3px solid;
+}
+
+
+
+/* Para o contêiner da escolha de caixa */
+.opcoes-caixa {
+    width: 40%; /* Largura do slider de caixas */
+    text-align: center;
+    display: flex;
+    justify-content: center;  /* Centraliza as caixas */
+    align-items: center;      /* Garante que o conteúdo fica centralizado verticalmente */
+    flex-direction: column;   /* Organiza os elementos de forma vertical */
+    padding: 20px;            /* Adiciona um padding para dar espaçamento */
+    box-sizing: border-box;   /* Garante que o padding não afete a largura */
+}
+
+/* Para o título "Escolha Caixa" */
+.opcoes-caixa p {
+    font-size: 2rem;
+    color: #c23f3f;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;  /* Deixa o texto em maiúsculas */
+    letter-spacing: 1px;        /* Dá um espaçamento entre as letras */  /* Cor de fundo suave */
+    border-radius: 10px;
+    font-family: "SuperShiny";
+}
+
+
+/* Estilo para os botões dentro da escolha de caixa */
+.caixa-slider button {
+    background-color: #e75d5d;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease; /* Suaviza a transição de cor */
+}
+
+.caixa-slider button:hover {
+    background-color: #d88ea2; /* Muda a cor do botão ao passar o mouse */
+}
+
+
+.outros-produtos {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.outros-produtos .produto img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+/* Para o botão Adicionar ao Carrinho */
+.add-to-cart {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.add-to-cart button {
+    background-color: #c23f3f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart button:hover {
+    background-color: #d74f4f;
+}
+
+.preco {
+    font-size: 1.4rem;
+    color: #1c1c1c;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif; /* Tipografia moderna */
+    font-weight: bold;
+
+}
+
+@media (max-width: 1000px) {
+  .produto{
+    margin-top: 70px;
+  }
+}
+
+
+@media (max-width: 768px) {
+    .produto-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .produto, .opcoes-caixa {
+        width: 80%;
+    }
+
+    .produto-container{
+        display:flex;
+        flex-direction: column;
+
+    }
+
+    .opcoes-caixa p {
+        font-size: 1.7rem;
+    }
+
+    #box-image img {
+        width: 100%;
+    }
+
+    #boxSelector{
+        width: 100%;
+    }
+}
+

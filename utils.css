@@ -1,0 +1,431 @@
+@font-face {
+    font-family: "SuperShiny";
+    src: url("fonts/SuperShiny.ttf") format("truetype");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
+
+*{
+    margin:0;
+    padding:0;   
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar
+{
+	width: 12px;
+  background-color: #333333;
+	
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color:#F1A1C7;
+}
+
+.emoji {
+    color: #fff;
+    font-size: 25px;
+    font-family: Arial;
+    text-shadow: 0 0 5px #000;
+  }
+  
+  @-webkit-keyframes emojis-fall {
+    0% {
+      top: -10%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+  @-webkit-keyframes emojis-shake {
+    0% {
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+    50% {
+      -webkit-transform: translateX(20px);
+      transform: translateX(20px);
+    }
+    100% {
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+  }
+  @keyframes emojis-fall {
+    0% {
+      top: -10%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+  @keyframes emojis-shake {
+    0% {
+      transform: translateX(0px);
+    }
+    25% {
+      transform: translateX(15px);
+    }
+    50% {
+      transform: translateX(-15px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  .emoji {
+    position: fixed;
+    top: -10%;
+    z-index:-1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    -webkit-animation-name: emojis-fall, emojis-shake;
+    -webkit-animation-duration: 5s, 3s;
+    -webkit-animation-timing-function: linear, ease-in-out;
+    -webkit-animation-iteration-count: infinite, infinite;
+    -webkit-animation-play-state: running, running;
+    animation-name: emojis-fall, emojis-shake;
+    animation-duration: 5s, 3s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running;
+  }
+  .emoji:nth-of-type(0) {
+    left: 1%;
+    -webkit-animation-delay: 0s, 0s;
+    animation-delay: 0s, 0s;
+  }
+  .emoji:nth-of-type(1) {
+    left: 10%;
+    -webkit-animation-delay: 1s, 1s;
+    animation-delay: 1s, 1s;
+  }
+  .emoji:nth-of-type(2) {
+    left: 20%;
+    -webkit-animation-delay: 6s, 0.5s;
+    animation-delay: 6s, 0.5s;
+  }
+  .emoji:nth-of-type(3) {
+    left: 30%;
+    -webkit-animation-delay: 4s, 2s;
+    animation-delay: 4s, 2s;
+  }
+  .emoji:nth-of-type(4) {
+    left: 40%;
+    -webkit-animation-delay: 2s, 2s;
+    animation-delay: 2s, 2s;
+  }
+  .emoji:nth-of-type(5) {
+    left: 50%;
+    -webkit-animation-delay: 8s, 3s;
+    animation-delay: 8s, 3s;
+  }
+  .emoji:nth-of-type(6) {
+    left: 60%;
+    -webkit-animation-delay: 6s, 2s;
+    animation-delay: 6s, 2s;
+  }
+  .emoji:nth-of-type(7) {
+    left: 70%;
+    -webkit-animation-delay: 2.5s, 1s;
+    animation-delay: 2.5s, 1s;
+  }
+  .emoji:nth-of-type(8) {
+    left: 80%;
+    -webkit-animation-delay: 1s, 0s;
+    animation-delay: 1s, 0s;
+  }
+  .emoji:nth-of-type(9) {
+    left: 90%;
+    -webkit-animation-delay: 3s, 1.5s;
+    animation-delay: 3s, 1.5s;
+  }
+
+
+
+
+
+
+body{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align:center;
+    background: #fffefb;
+    background-size: 200% 200%;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.01) 0px 54px 55px, rgba(214, 214, 214, 0.12) 0px -12px 30px, rgba(94, 94, 94, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.nav_bar {
+    display: flex;
+    justify-content: space-between;
+    height: 64px; 
+    background-color: #dadfff;
+    padding:0 50px;
+    
+}
+
+.nomeloja{
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.9rem;
+    font-family: "SuperShiny";
+    letter-spacing: 2px;
+    text-shadow: #000 0px 0px 1px;
+}
+
+.nav_bar > ul{
+    display: flex;
+    padding-right: 24px;
+    gap: 16px;
+    align-items: center;
+}
+
+.nav_bar > ul > li{
+    list-style: none;
+}
+
+.nav_bar > ul > li > a{
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 1rem;
+    
+}
+
+.hbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+i.fa-tiktok {
+    font-size: 1.6em; /* Adjust the size of the Instagram icon */
+    color: #ff84be; /* Set the color of the icon */
+    text-decoration: none; /* Remove underline */
+}
+
+i.fa-tiktok:hover {
+    color: #ff71b9; /* Change color on hover */
+    cursor: pointer;
+}
+
+i.fa-whatsapp {
+    font-size: 1.6em; /* Adjust the size of the Instagram icon */
+    color: #ff84be; /* Set the color of the icon */
+    text-decoration: none; /* Remove underline */
+}
+
+i.fa-whatsapp:hover {
+    color: #ff71b9; /* Change color on hover */
+    cursor:pointer;
+}
+
+i.fa-shopping-cart {
+    font-size: 1.6em; /* Adjust the size of the Instagram icon */
+    color: #ff84be; /* Set the color of the icon */
+    text-decoration: none; /* Remove underline */
+}
+i.fa-shopping-cart:hover{
+    color: #ff71b9; /* Change color on hover */
+    cursor:pointer;
+}
+#cart-count{
+  font-size: 1.5em;
+  color: #ff84be;
+}
+
+
+
+
+#titulo_loja{
+  font-family: "SuperShiny";  
+  font-size: 8rem;
+  padding: 100px 0;
+}
+
+#titulo_loja span{
+  margin: 0 -1%;
+}
+
+
+
+@media screen and (max-width: 991px) {
+  #titulo_loja{
+    font-size: 4.5rem;}
+
+    .contactos {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .contactos-item {
+      text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+ 
+  #titulo_loja{
+    font-family: "SuperShiny";  
+    font-size: 3.5rem;
+    padding: 100px 0;
+  }
+  
+  .nav_bar{
+      padding:0 0px;
+  }
+
+  .nav_bar > ul{
+    padding-right: 20px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  
+  .contactos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+.contactos-item {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  }
+
+
+  @media screen and (max-width: 350px) {
+ 
+    #titulo_loja{
+      font-family: "SuperShiny";  
+      font-size: 3rem;
+      padding: 100px 0;
+    }
+    
+    .nav_bar{
+        padding:0 0px;
+    }
+  
+    .nav_bar > ul{
+      padding-right: 20px;
+      gap: 5px;
+      align-items: center;
+    }
+  
+    .nav_bar > ul > li i {
+      font-size: 20px; 
+  }
+  
+    
+    .contactos {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+  .contactos-item {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    }
+
+
+.info-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f3f3f3;
+  padding: 70px 0;
+  font-family: 'Arimo', sans-serif;
+}
+
+.contactos{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333;
+  padding: 70px 0;
+  font-family: 'Arimo', sans-serif;
+  border-top: 3px solid #FF6F61; 
+}
+
+.info-item {
+  text-align: center;
+  max-width: 300px;
+}
+
+.contactos-item {
+  text-align: center;
+  max-width: 300px;
+  color: #e2e2e2;
+}
+
+.contactos-item  h3 {
+  margin: 10px 0;
+  font-size: 19px;
+}
+
+.contactos-item  p {
+  color: #d6d6d6;
+  font-size: 16px;
+}
+.contactos-item img {
+  width: 80%;
+  height: 80%;
+}
+.info-item img {
+  width: 30%;
+  height: 30%;
+}
+
+.info-item h3 {
+  margin: 10px 0;
+  font-size: 17px;
+}
+
+.info-item p {
+  color: #666;
+  font-size: 14px;
+}
+
+
+footer {
+  background-color: #333; /* Fundo escuro */
+  color: #fff; /* Texto claro para contraste */
+  padding: 20px 10px; /* Espaçamento interno */
+  text-align: center; /* Centralizar conteúdo */
+  font-size: 0.9rem; /* Tamanho de fonte ajustado */
+  border-top: 1px solid #a9a9a9; /* Linha decorativa no topo */
+  font-family: 'Arial', sans-serif; /* Tipografia moderna */
+
+  z-index: 99;
+}
+
+footer p {
+  margin: 0; /* Remover margens padrão */
+  line-height: 1.6; /* Melhorar espaçamento entre linhas */
+}
+
+footer a {
+  color: #84d4c9;/* Cor destacada para links */
+  text-decoration: none; /* Remover sublinhado */
+  font-weight: bold; /* Links em negrito */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Mostrar sublinhado ao passar o rato */
+}
