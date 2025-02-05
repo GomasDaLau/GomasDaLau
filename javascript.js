@@ -509,8 +509,6 @@ function updateCartPopup() {
         }
 
         cartItemsList.appendChild(itemElement);
-
-        console.log("PESO: " + item.peso);
     });
     
 
@@ -1224,7 +1222,7 @@ function generatePDF() {
             }
             
             // If we reach near the bottom of the page, create a new page
-            if (yOffset > 250) {
+            if (yOffset > 275) {
                 doc.addPage();
                 yOffset = 10;
             }
@@ -1261,7 +1259,7 @@ function generatePDF() {
             yOffset += 10;
 
             // If we reach near the bottom of the page, create a new page
-            if (yOffset > 250) {
+            if (yOffset > 275) {
                 doc.addPage();
                 yOffset = 10;
             }
@@ -1272,7 +1270,7 @@ function generatePDF() {
     doc.setFontSize(13);
 
     yOffset += 8;
-    doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`) - 10), yOffset);
+    doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${(pesoEncomenda*1000).toFixed(2)} gr`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`) - 10), yOffset);
     yOffset += 5;
 
     let endtext = '';
@@ -1509,7 +1507,7 @@ function applyDiscount(){
             percentagem_desconto = codigo.discount;
 
             desconto_aplicado = true; 
-            nome_desconto_aplicado = code;
+            nome_desconto_aplicado = code.value;
 
             showNotification(`Desconto de ${percentagem_desconto}% aplicado!`);
 
@@ -1560,11 +1558,9 @@ function calcularPortes(){
         cart.forEach(item => {
             if(item.peso){
                 pesoTotal += item.peso * item.quantity;
-                console.log("calc PESO: " + item.peso);
             }
             else{
                 pesoTotal += 0.01 * item.quantity;
-                console.log("calc PESO: " + 0.01);
             }
         });
 
