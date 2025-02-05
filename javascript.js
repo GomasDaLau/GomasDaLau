@@ -359,27 +359,6 @@ function addKilos(){
 
         product.gomas = cart_gomasKilo;
     }
-    else if(window.location.href.includes("tuboslinhaslinguas.html")){
-        product = { 
-            id: 10000+global_nGomasKilo, 
-            name : "Tubos, Linhas e Línguas", 
-            peso: peso.value,
-            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
-            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
-            gomas : [],
-        }
-        const allSelected_gomas = document.getElementsByClassName("selected");
-        const elementsArray = Array.from(allSelected_gomas);
-        for (let i = 0; i < elementsArray.length; i++) {
-            elementsArray[i].classList.remove("selected");
-            const button = elementsArray[i].querySelector('.selecionar-tll');
-            button.textContent = "Selecionar";
-        }
-
-        global_nGomasKilo += 1;
-
-        product.gomas = cart_tuboslinhaslinguas;
-    }
     else if(window.location.href.includes("gomastuboslinhaslinguas.html")){
         product = {
             id: 10000+global_nGomasKilo,
@@ -402,6 +381,28 @@ function addKilos(){
 
         product.gomas = cart_gomastuboslinnhaslinguas;
     }
+    else if(window.location.href.includes("tuboslinhaslinguas.html")){
+        product = { 
+            id: 10000+global_nGomasKilo, 
+            name : "Tubos, Linhas e Línguas", 
+            peso: peso.value,
+            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
+            gomas : [],
+        }
+        const allSelected_gomas = document.getElementsByClassName("selected");
+        const elementsArray = Array.from(allSelected_gomas);
+        for (let i = 0; i < elementsArray.length; i++) {
+            elementsArray[i].classList.remove("selected");
+            const button = elementsArray[i].querySelector('.selecionar-tll');
+            button.textContent = "Selecionar";
+        }
+
+        global_nGomasKilo += 1;
+
+        product.gomas = cart_tuboslinhaslinguas;
+    }
+    
 
     peso.value = '';
     
