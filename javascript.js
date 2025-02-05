@@ -288,7 +288,7 @@ function addKilosRandom() {
         product = { 
             id: 10000 + global_nGomasKilo, 
             name: "Gomas, Tubos, Linhas e Línguas (Mix)", 
-            price: peso.value >= 1 ? peso.value * 9.50 : Math.round((peso.value * 10)%10), 
+            price: peso.value >= 1 ? peso.value * 13 : Math.round((peso.value * 10)%10), 
             peso: peso.value, 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"
         };
@@ -342,7 +342,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo,
             name : "Gomas, Tubos, Linhas e Línguas",
             peso: peso.value,
-            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10) * 1.3), 
+            price: peso.value >= 1 ? peso.value * 13 : (Math.round((peso.value * 10)%10) * 1.3), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
@@ -358,7 +358,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo, 
             name : "Tubos, Linhas e Línguas", 
             peso: peso.value,
-            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10) * 1.5), 
+            price: peso.value >= 1 ? peso.value * 15 : (Math.round((peso.value * 10)%10) * 1.5), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
