@@ -1318,7 +1318,7 @@ function generatePDF() {
     doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${(pesoEncomenda*1000).toFixed(2)} gr`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`) - 10), yOffset);
     yOffset += 5;
 
-    doc.text(`Portes: ${portes.toFixed(2)}€`, (pageWidth - doc.getTextWidth(`Portes: ${portes.toFixed(2)}€`) - 10), yOffset);
+    doc.text(`Portes: ${preco_peso.toFixed(2)}€`, (pageWidth - doc.getTextWidth(`Portes: ${preco_peso.toFixed(2)}€`) - 10), yOffset);
     yOffset += 5;
 
     let endtext = '';
