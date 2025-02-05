@@ -653,7 +653,7 @@ document.querySelectorAll('.selecionar').forEach(button => {
                 // Show a notification at the click position
                 showNotification(`Número de gomas selecionadas atingido!`);
             }
-            else if(peso.value < 1 && nSelected < (Math.round(peso.value*10)%10)*3){
+            else if(peso.value < 1 && 1 <= nSelected < (Math.round(peso.value*10)%10)*3){
                 // Show a notification at the click position
                 showNotification(`${product.name} foi selecionado/a!`);
 
@@ -723,7 +723,7 @@ document.querySelectorAll('.selecionar-tll').forEach(button => {
                 // Show a notification at the click position
                 showNotification(`Número de gomas selecionadas atingido!`);
             }
-            else if(peso.value < 1 && nSelected < (Math.round(peso.value*10)%10)*3){
+            else if(peso.value < 1 && 1 <= nSelected < (Math.round(peso.value*10)%10)*3){
                 // Show a notification at the click position
                 showNotification(`${product.name} foi selecionado/a!`);
 
@@ -746,7 +746,8 @@ document.querySelectorAll('.selecionar-tll').forEach(button => {
         updateCartCount();
         updateCartPopup();
         
-    });
+    }
+});
 });
 
 // HANDLE SELECIONAR GOMAS+TUBOS+LINHAS+LINGUAS
@@ -802,7 +803,7 @@ document.querySelectorAll('.selecionar-gtll').forEach(button => {
                 // Show a notification at the click position
                 showNotification(`Número de gomas selecionadas atingido!`);
             }
-            else if(peso.value < 1 && nSelected < (Math.round(peso.value*10)%10)*3){
+            else if(peso.value < 1 && 1 <= nSelected < (Math.round(peso.value*10)%10)*3){
                 // Show a notification at the click position
                 showNotification(`${product.name} foi selecionado/a!`);
 
