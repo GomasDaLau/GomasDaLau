@@ -1270,7 +1270,7 @@ function generatePDF() {
     doc.setFontSize(13);
 
     yOffset += 8;
-    doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg`) - 10), yOffset);
+    doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`) - 10), yOffset);
     yOffset += 5;
 
     let endtext = '';
