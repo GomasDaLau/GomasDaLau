@@ -697,11 +697,11 @@ document.querySelectorAll('.selecionar-tll').forEach(button => {
             cart_tuboslinhaslinguas.splice(index, 1);
         }
         else{
-            if(nSelected == parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
+            if(peso.value >= 1 && nSelected == parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
                 // Show a notification at the click position
                 showNotification(`Número de gomas selecionadas atingido!`);
             }
-            else if(nSelected < parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
+            else if(peso.value >= 1 && nSelected < parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
                 // Show a notification at the click position
                 showNotification(`${product.name} foi selecionado/a!`);
 
@@ -719,7 +719,28 @@ document.querySelectorAll('.selecionar-tll').forEach(button => {
 
                 cart_tuboslinhaslinguas.push(product);
             }
-        }
+            else if(peso.value < 1 && nSelected == (Math.round(peso.value*10)%10)*3){
+                // Show a notification at the click position
+                showNotification(`Número de gomas selecionadas atingido!`);
+            }
+            else if(peso.value < 1 && nSelected < (Math.round(peso.value*10)%10)*3){
+                // Show a notification at the click position
+                showNotification(`${product.name} foi selecionado/a!`);
+
+                element.classList.add("selected");
+                button.textContent = "Remover";
+
+                if(product.id == 1004){
+                    const sabor = document.getElementById(`sabores-1004`);
+                    product.name += ` [${sabor.value}]`;
+                } // TUBOS MULTIFRUTOS ÁCIDOS
+                if(product.id == 2004){
+                    const sabor = document.getElementById(`sabores-2004`);
+                    product.name += ` [${sabor.value}]`;
+                } // LINGUAS MULTIFRUTOS
+
+                cart_tuboslinhaslinguas.push(product);
+            }
 
         // Update cart count and popup
         updateCartCount();
@@ -755,11 +776,33 @@ document.querySelectorAll('.selecionar-gtll').forEach(button => {
             cart_gomastuboslinnhaslinguas.splice(index, 1);
         }
         else{
-            if(nSelected == parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
+            if(peso.value >= 1 && nSelected == parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
                 // Show a notification at the click position
                 showNotification(`Número de gomas selecionadas atingido!`);
             }
-            else if(nSelected < parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
+            else if(peso.value >= 1 && nSelected < parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
+                // Show a notification at the click position
+                showNotification(`${product.name} foi selecionado/a!`);
+
+                element.classList.add("selected");
+                button.textContent = "Remover";
+
+                if(product.id == 1004){
+                    const sabor = document.getElementById(`sabores-1004`);
+                    product.name += ` [${sabor.value}]`;
+                } // TUBOS MULTIFRUTOS ÁCIDOS
+                if(product.id == 2004){
+                    const sabor = document.getElementById(`sabores-2004`);
+                    product.name += ` [${sabor.value}]`;
+                } // LINGUAS MULTIFRUTOS
+
+                cart_gomastuboslinnhaslinguas.push(product);
+            }
+            else if(peso.value < 1 && nSelected == (Math.round(peso.value*10)%10)*3){
+                // Show a notification at the click position
+                showNotification(`Número de gomas selecionadas atingido!`);
+            }
+            else if(peso.value < 1 && nSelected < (Math.round(peso.value*10)%10)*3){
                 // Show a notification at the click position
                 showNotification(`${product.name} foi selecionado/a!`);
 
