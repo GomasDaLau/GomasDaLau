@@ -232,8 +232,8 @@ const products_chocolates = [
 ];
 
 const products_boxs = [
-    { id: 8001, name: "Box Mistério", price: 0, image: "images/categoria-boxes.jpg", quantity: 0, peso: 0},
-    { id: 8002, name: "Balde 2,5 kilos", price: 30, image: "images/balde.jpeg", quantity: 0, peso: 2.5 },
+    { id: 8001, name: "Box Mistério", price: 0, image: "https://i.ibb.co/nMWz4Vrf/categoria-boxes.webp", quantity: 0, peso: 0},
+    { id: 8002, name: "Balde 2,5 kilos", price: 30, image: "https://i.ibb.co/x86gxJvC/balde.jpg", quantity: 0, peso: 2.5 },
     { id: 8003, name: "Box degustação", price:0 ,image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",quantity: 0, peso:0}
 ]
 
