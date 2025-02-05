@@ -193,7 +193,7 @@ const products_gomasxxl = [
     { id: 4009, name: "Rãs [XXL]", price: 0.40, image: "https://i.ibb.co/JRK0CWFK/408.jpg", quantity: 0 },
     { id: 4010, name: "Caveiras [XXL]", price: 0.50, image: "https://i.ibb.co/tp2Bhg9c/410.jpg", quantity: 0 },
     { id: 4011, name: "Morangos Ácidos [XXL]", price: 0.50, image: "https://i.ibb.co/QFfHc8H8/406.jpg", quantity: 0 },
-    { id: 4012, name: "Goma Metro [XXL]", price: 2.50, image: "https://i.ibb.co/hJ0PcFBb/metro.jpg", quantity: 0 }
+    { id: 4012, name: "Goma Metro [XXL]", price: 2.50, image: "https://i.ibb.co/hJ0PcFBb/metro.jpg", quantity: 0, peso: 0.2 }
 ];
 
 const products_gomaspicantes = [
