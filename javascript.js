@@ -143,7 +143,7 @@ const products_tuboslinhas = [
     { id: 1015, name: "Maxi tubos arco íris com açúcar", price: 0.30, image: "https://i.ibb.co/fFYHRZS/120.jpg", quantity: 0, peso:0.030 },
     { id: 1016, name: "Maxi tubos melancia", price: 0.30, image: "https://i.ibb.co/wgw0Y0W/121.jpg", quantity: 0, peso:0.030 },
     { id: 1017, name: "Maxi tubos arco íris sem açúcar", price: 0.25, image: "https://i.ibb.co/VxrXQHP/122.jpg", quantity: 0, peso:0.030 },
-    { id: 1018, name: "Tubos de morango e nata", price: 0.50, image: "https://i.ibb.co/f1cRkKd/123.jpg", quantity: 0 },
+    { id: 1018, name: "Tubos de morango e nata", price: 0.15, image: "https://i.ibb.co/f1cRkKd/123.jpg", quantity: 0 },
     { id: 1019, name: "Tubos de manga", price: 0.10, image: "https://i.ibb.co/8Kd6NvY/118.jpg", quantity: 0 },
     { id: 1020, name: "Jumbos sanduíche morango e nata", price: 0.70, image: "https://i.ibb.co/TqBcdYYF/310.jpg", quantity: 0, peso:0.060 },
     { id: 1021, name: "Linhas de melancia", price: 0.15, image: "https://i.ibb.co/6mxgj1X/124.jpg", quantity: 0 },
