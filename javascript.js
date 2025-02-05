@@ -444,8 +444,14 @@ function updateCartPopup() {
         const nGomasKilo_added = document.getElementsByClassName("selected");
         const peso = document.getElementById('kilos');
 
-        if(nGomasKilo_added.length < parseInt(peso.value)*10){
+        if(peso.value >= 1 && nGomasKilo_added.length < parseInt(peso.value)*10){
             addKilos.disabled = true;
+        }
+        else if(peso.value < 1 && ( (Math.round(peso.value*10)%10) > nGomasKilo_added.length)){
+            addKilos.disabled = true;
+        }
+        else{
+            addKilos.disabled = false;
         }
 
         if(peso.value != ''){
@@ -630,11 +636,11 @@ document.querySelectorAll('.selecionar').forEach(button => {
             cart_gomasKilo.splice(index, 1);
         }
         else{
-            if(nSelected == parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
+            if(peso.value >= 1 && nSelected == parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
                 // Show a notification at the click position
                 showNotification(`Número de gomas selecionadas atingido!`);
             }
-            else if(nSelected < parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
+            else if(peso.value >= 1 && nSelected < parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)){
                 // Show a notification at the click position
                 showNotification(`${product.name} foi selecionado/a!`);
 
@@ -643,6 +649,21 @@ document.querySelectorAll('.selecionar').forEach(button => {
 
                 cart_gomasKilo.push(product);
             }
+            else if(peso.value < 1 && nSelected == (Math.round(peso.value*10)%10)*3){
+                // Show a notification at the click position
+                showNotification(`Número de gomas selecionadas atingido!`);
+            }
+            else if(peso.value < 1 && nSelected < (Math.round(peso.value*10)%10)*3){
+                // Show a notification at the click position
+                showNotification(`${product.name} foi selecionado/a!`);
+
+                element.classList.add("selected");
+                button.textContent = "Remover";
+
+                cart_gomasKilo.push(product);
+            }
+
+
         }
 
         // Update cart count and popup
