@@ -1615,9 +1615,11 @@ function em_mao(){
         address.value = '';
         postal_code.value = '';
         country.value = '';
+        city.value = '';
         address.disabled = true;
         postal_code.disabled = true;
         country.disabled = true;
+        city.disabled = true;
 
         totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
         totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
@@ -1674,6 +1676,7 @@ document.getElementById('close-popup-span').addEventListener('click', function()
     document.getElementById('aplicar-desconto').disabled = false;
     document.getElementById('desconto').disabled = false;
     document.getElementById('desconto').value = '';
+    document.getElementById('download-pdf-btn').disabled = true;
 
     const name = document.getElementById('user-name');
     const name2 = document.getElementById('user-name2');
