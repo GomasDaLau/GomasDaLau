@@ -16,7 +16,7 @@ let cart_gomastuboslinnhaslinguas = [];
 
 
 const products_gomas = [
-    { id: 1, name: "Aros de pêssego", price: 0, image: "https://i.ibb.co/WG9Cr06/1.jpg"},
+    { id: 1, name: "Aros de pêssego", image: "https://i.ibb.co/WG9Cr06/1.jpg"},
     { id: 2, name: "Beijinhos de morango e nata", image: "https://i.ibb.co/K7vfMR6/2.jpg" },
     { id: 3, name: "Tacos de coca colas", image: "https://i.ibb.co/ySfPymq/3.jpg" },
     { id: 4, name: "Iglos recheado", image: "https://i.ibb.co/4ZPYJPZ/4.jpg" },
@@ -56,35 +56,35 @@ const products_gomas = [
     { id: 38, name: "Tartitas morango e nata", image: "https://i.ibb.co/KXKS1Cp/38.jpg" },
     { id: 39, name: "Talhadas de melancia", image: "https://i.ibb.co/Lx0zsMK/39.jpg" },
     { id: 40, name: "Corações recheados de framboesa", image: "https://i.ibb.co/zJZRNPN/40.jpg" },
-    { id: 41, nome: "Corações recheados de morango", imagem: "https://i.ibb.co/R6Vf0Sb/41.jpg" },
-    { id: 42, nome: "Cérebros recheados", imagem: "https://i.ibb.co/nCXCBZ7/42.jpg" },
-    { id: 43, nome: "Twist de framboesa", imagem: "https://i.ibb.co/7S46KqX/43.jpg" },
-    { id: 44, nome: "Beijinhos de framboesa", imagem: "https://i.ibb.co/SXMKqJr/44.jpg" },
-    { id: 45, nome: "Twist de morango", imagem: "https://i.ibb.co/GpCXR8g/45.jpg" },
-    { id: 46, nome: "Ossos", imagem: "https://i.ibb.co/YkyHnSn/46.jpg" },
-    { id: 47, nome: "Ananás", imagem: "https://i.ibb.co/89hH36p/47.jpg" },
-    { id: 48, nome: "Fatias de pizza", imagem: "https://i.ibb.co/MBZPKjr/48.jpg" },
-    { id: 49, nome: "Morangos silvestres", imagem: "https://i.ibb.co/31gQw4s/49.jpg" },
-    { id: 50, nome: "Moedas ácidas", imagem: "https://i.ibb.co/sVyvMSL/50.jpg" },
-    { id: 51, nome: "Beijinhos de morango", imagem: "https://i.ibb.co/8XLztkD/51.jpg" },
-    { id: 52, nome: "Regalliz de Maracujá", imagem: "https://i.ibb.co/LZM2d41/52.jpg" },
-    { id: 53, nome: "Gelados", imagem: "https://i.ibb.co/k6FCxG9/53.jpg" },
-    { id: 54, nome: "Regalliz de framboesa", imagem: "https://i.ibb.co/kynkTt4/54.jpg" },
-    { id: 55, nome: "Bananas", imagem: "https://i.ibb.co/sqPXWdw/55.jpg" },
-    { id: 56, nome: "Aros de morango", imagem: "https://i.ibb.co/CvhWxLm/56.jpg" },
-    { id: 57, nome: "Terabytes morango", imagem: "https://i.ibb.co/FJ2SCB1/57.jpg" },
-    { id: 58, nome: "Tijolos de morango ácidos", imagem: "https://i.ibb.co/JQYghnR/58.jpg" },
-    { id: 59, nome: "Talhadas de framboesa ácidas", imagem: "https://i.ibb.co/1MZLtvF/59.jpg" },
-    { id: 60, nome: "Corações tricolor", imagem: "https://i.ibb.co/xqQ25J3/60.jpg" },
-    { id: 61, nome: "Ratos", imagem: "https://i.ibb.co/T0jwMSp/61.jpg" },
-    { id: 62, nome: "Cerejas", imagem: "https://i.ibb.co/7Cs8XL5/62.jpg" },
-    { id: 63, nome: "Minhocas", imagem: "https://i.ibb.co/yktDg5F/63.jpg" },
-    { id: 64, nome: "Talhadas de ananás", imagem: "https://i.ibb.co/1T5N7cj/64.jpg" },
-    { id: 65, nome: "Morangos com recheio de natas", imagem: "https://i.ibb.co/v407yDJ/65.jpg" },
-    { id: 66, nome: "Cenouras", imagem: "https://i.ibb.co/G5j9xrj/66.jpg" },
-    { id: 67, nome: "Amoras de framboesa", imagem: "https://i.ibb.co/Yh44Tk7/67.jpg" },
-    { id: 68, nome: "Presuntos sem açúcar", imagem: "https://i.ibb.co/3d5HmFp/68.jpg" },
-    { id: 69, nome: "Minhocas com açúcar", imagem: "https://i.ibb.co/tHMKtY7/69.jpg" },
+    { id: 41, name: "Corações recheados de morango", image: "https://i.ibb.co/R6Vf0Sb/41.jpg" },
+    { id: 42, name: "Cérebros recheados", image: "https://i.ibb.co/nCXCBZ7/42.jpg" },
+    { id: 43, name: "Twist de framboesa", image: "https://i.ibb.co/7S46KqX/43.jpg" },
+    { id: 44, name: "Beijinhos de framboesa", image: "https://i.ibb.co/SXMKqJr/44.jpg" },
+    { id: 45, name: "Twist de morango", image: "https://i.ibb.co/GpCXR8g/45.jpg" },
+    { id: 46, name: "Ossos", image: "https://i.ibb.co/YkyHnSn/46.jpg" },
+    { id: 47, name: "Ananás", image: "https://i.ibb.co/89hH36p/47.jpg" },
+    { id: 48, name: "Fatias de pizza", image: "https://i.ibb.co/MBZPKjr/48.jpg" },
+    { id: 49, name: "Morangos silvestres", image: "https://i.ibb.co/31gQw4s/49.jpg" },
+    { id: 50, name: "Moedas ácidas", image: "https://i.ibb.co/sVyvMSL/50.jpg" },
+    { id: 51, name: "Beijinhos de morango", image: "https://i.ibb.co/8XLztkD/51.jpg" },
+    { id: 52, name: "Regalliz de Maracujá", image: "https://i.ibb.co/LZM2d41/52.jpg" },
+    { id: 53, name: "Gelados", image: "https://i.ibb.co/k6FCxG9/53.jpg" },
+    { id: 54, name: "Regalliz de framboesa", image: "https://i.ibb.co/kynkTt4/54.jpg" },
+    { id: 55, name: "Bananas", image: "https://i.ibb.co/sqPXWdw/55.jpg" },
+    { id: 56, name: "Aros de morango", image: "https://i.ibb.co/CvhWxLm/56.jpg" },
+    { id: 57, name: "Terabytes morango", image: "https://i.ibb.co/FJ2SCB1/57.jpg" },
+    { id: 58, name: "Tijolos de morango ácidos", image: "https://i.ibb.co/JQYghnR/58.jpg" },
+    { id: 59, name: "Talhadas de framboesa ácidas", image: "https://i.ibb.co/1MZLtvF/59.jpg" },
+    { id: 60, name: "Corações tricolor", image: "https://i.ibb.co/xqQ25J3/60.jpg" },
+    { id: 61, name: "Ratos", image: "https://i.ibb.co/T0jwMSp/61.jpg" },
+    { id: 62, name: "Cerejas", image: "https://i.ibb.co/7Cs8XL5/62.jpg" },
+    { id: 63, name: "Minhocas", image: "https://i.ibb.co/yktDg5F/63.jpg" },
+    { id: 64, name: "Talhadas de ananás", image: "https://i.ibb.co/1T5N7cj/64.jpg" },
+    { id: 65, name: "Morangos com recheio de natas", image: "https://i.ibb.co/v407yDJ/65.jpg" },
+    { id: 66, name: "Cenouras", image: "https://i.ibb.co/G5j9xrj/66.jpg" },
+    { id: 67, name: "Amoras de framboesa", image: "https://i.ibb.co/Yh44Tk7/67.jpg" },
+    { id: 68, name: "Presuntos sem açúcar", image: "https://i.ibb.co/3d5HmFp/68.jpg" },
+    { id: 69, name: "Minhocas com açúcar", image: "https://i.ibb.co/tHMKtY7/69.jpg" },
     { id: 70, name: "Amoras de morango e nata", image: "https://i.ibb.co/BK93rNW/70.jpg" },
     { id: 71, name: "Coca colas",  image: "https://i.ibb.co/CVpyFCK/71.jpg" },
     { id: 72, name: "Chapéus mexicanos",  image: "https://i.ibb.co/bJXwhpG/72.jpg" },
@@ -122,7 +122,7 @@ const products_gomas = [
     { id: 104, name: "Amoras brancas", image: "https://i.ibb.co/Y01NzD8/104.jpg" },
     { id: 105, name: "Búzios e conchas", image:"https://i.ibb.co/pvC66wWL/411.jpg"},
 
-    { id: 99999, name: "Saco individual", price: 0.10 , image:"images/99999.jpeg", peso: 5},  
+    { id: 99999, name: "Saco individual", price: 0.10 , image:"images/99999.jpeg", peso: 0.005},  
 ];
 
 const products_tuboslinhas = [
@@ -134,18 +134,18 @@ const products_tuboslinhas = [
     { id: 1006, name: "Tubos de pastilha", price: 0.15, image: "https://i.ibb.co/b10ycyc/110.jpg", quantity: 0 },
     { id: 1007, name: "Tubos de iogurte", price: 0.15, image: "https://i.ibb.co/2qJnBwY/111.jpg", quantity: 0 },
     { id: 1008, name: "Tubos de coca cola ácidos", price: 0.15, image: "https://i.ibb.co/FVYgfXn/112.jpg", quantity: 0 },
-    { id: 1009, name: "Jumbos de morango e framboesa", price: 0.70, image: "https://i.ibb.co/g43hky5/113.jpg", quantity: 0, peso:60 },
-    { id: 1010, name: "Jumbos de morango e nata sem açúcar", price: 0.30, image: "https://i.ibb.co/vXt2xmL/114.jpg", quantity: 0 ,peso:30},
-    { id: 1011, name: "Jumbos de morango e nata com açúcar", price: 0.30, image: "https://i.ibb.co/GVrsNmc/115.jpg", quantity: 0 ,peso:30},
-    { id: 1012, name: "Maxi tubos coca cola ácidos", price: 0.30, image: "https://i.ibb.co/rH1CHyc/117.jpg", quantity: 0,peso:30},
+    { id: 1009, name: "Jumbos de morango e framboesa", price: 0.70, image: "https://i.ibb.co/g43hky5/113.jpg", quantity: 0, peso: 0.060 },
+    { id: 1010, name: "Jumbos de morango e nata sem açúcar", price: 0.30, image: "https://i.ibb.co/vXt2xmL/114.jpg", quantity: 0 ,peso: 0.030},
+    { id: 1011, name: "Jumbos de morango e nata com açúcar", price: 0.30, image: "https://i.ibb.co/GVrsNmc/115.jpg", quantity: 0 ,peso: 0.030},
+    { id: 1012, name: "Maxi tubos coca cola ácidos", price: 0.30, image: "https://i.ibb.co/rH1CHyc/117.jpg", quantity: 0,peso:0.030},
     { id: 1013, name: "Tubos de pêssego", price: 0.15, image: "https://i.ibb.co/8Kd6NvY/118.jpg", quantity: 0 },
     { id: 1014, name: "Tubos arco íris", price: 0.15, image: "https://i.ibb.co/ZHSpL1H/119.jpg", quantity: 0 },
-    { id: 1015, name: "Maxi tubos arco íris com açúcar", price: 0.30, image: "https://i.ibb.co/fFYHRZS/120.jpg", quantity: 0, peso:30 },
-    { id: 1016, name: "Maxi tubos melancia", price: 0.30, image: "https://i.ibb.co/wgw0Y0W/121.jpg", quantity: 0, peso:30 },
-    { id: 1017, name: "Maxi tubos arco íris sem açúcar", price: 0.25, image: "https://i.ibb.co/VxrXQHP/122.jpg", quantity: 0, peso:30 },
+    { id: 1015, name: "Maxi tubos arco íris com açúcar", price: 0.30, image: "https://i.ibb.co/fFYHRZS/120.jpg", quantity: 0, peso:0.030 },
+    { id: 1016, name: "Maxi tubos melancia", price: 0.30, image: "https://i.ibb.co/wgw0Y0W/121.jpg", quantity: 0, peso:0.030 },
+    { id: 1017, name: "Maxi tubos arco íris sem açúcar", price: 0.25, image: "https://i.ibb.co/VxrXQHP/122.jpg", quantity: 0, peso:0.030 },
     { id: 1018, name: "Tubos de morango e nata", price: 0.50, image: "https://i.ibb.co/f1cRkKd/123.jpg", quantity: 0 },
     { id: 1019, name: "Tubos de manga", price: 0.10, image: "https://i.ibb.co/8Kd6NvY/118.jpg", quantity: 0 },
-    { id: 1020, name: "Jumbos sanduíche morango e nata", price: 0.70, image: "https://i.ibb.co/TqBcdYYF/310.jpg", quantity: 0, peso:60 },
+    { id: 1020, name: "Jumbos sanduíche morango e nata", price: 0.70, image: "https://i.ibb.co/TqBcdYYF/310.jpg", quantity: 0, peso:0.060 },
     { id: 1021, name: "Linhas de melancia", price: 0.15, image: "https://i.ibb.co/6mxgj1X/124.jpg", quantity: 0 },
     { id: 1022, name: "Linhas de framboesa", price: 0.15, image: "https://i.ibb.co/Tqx0H7D/125.jpg", quantity: 0 },
     { id: 1023, name: "Linhas de morango e nata", price: 0.15, image: "https://i.ibb.co/51dVwsh/126.jpg", quantity: 0 },
@@ -168,7 +168,7 @@ const products_linguas = [
 ];
 
 const products_pastilhas =[
-    { id: 3001, name: "Rolo de pastilha com tatuagem", price: 0.90, image: "https://i.ibb.co/j5MqDr7/140.jpg", quantity: 0, peso:30},
+    { id: 3001, name: "Rolo de pastilha com tatuagem", price: 0.90, image: "https://i.ibb.co/j5MqDr7/140.jpg", quantity: 0, peso:0.030},
     { id: 3002, name: "Blong de Iogurte de Morango", price: 0.15, image: "https://i.ibb.co/025Wv6m/141.jpg", quantity: 0 },
     { id: 3003, name: "Blong de Morango", price: 0.15, image: "https://i.ibb.co/YjHgpXc/142.jpg", quantity: 0 },
     { id: 3004, name: "Blong de Melancia", price: 0.15, image: "https://i.ibb.co/gmsCrxY/143.jpg", quantity: 0 },
@@ -202,81 +202,85 @@ const products_gomaspicantes = [
 ];
 
 const products_marshmallows = [
-    { id: 6001, name: "Marshmallow coberto de chocolate de leite", price: 0.25, image: "https://i.ibb.co/S4Z2syhw/168.jpg", quantity: 0, peso: 5  },
-    { id: 6002, name: "Crujitos Morango/Baunilha", price: 0.25, image: "https://i.ibb.co/mFdtJYFf/167.jpg", quantity: 0, sabor: ["Morango", "Baunilha"], peso: 5  },
-    { id: 6003, name: "Marshmallow branco e rosa recheado de morango", price: 0.10, image: "https://i.ibb.co/BKz0DdNX/170.jpg", quantity: 0, peso: 5  },
-    { id: 6004, name: "Marshmallow coberto de chocolate negro", price: 0.30, image: "https://i.ibb.co/Zz0tcpxb/169.jpg", quantity: 0, peso: 5  },
-    { id: 6005, name: "Recheado de morango", price: 0.15, image: "https://i.ibb.co/pB7MMHhF/171.jpg", quantity: 0, peso: 5  },
-    { id: 6006, name: "Recheado de framboesa", price: 0.15, image: "https://i.ibb.co/3YsnHrSv/172.jpg", quantity: 0, peso: 5  },
-    { id: 6007, name: "Bananas choco", price: 0.35, image: "https://i.ibb.co/mYPrGvr/173.jpg", quantity: 0, peso: 5  },
-    { id: 6008, name: "Choco jumbos", price: 0.90, image: "https://i.ibb.co/Q2ChzDK/174.jpg", quantity: 0, peso: 40 },
-    { id: 6009, name: "Crujitos de Chocolate Branco/Leite", price: 0.25, image: "https://i.ibb.co/JWsJNjZT/175.jpg", quantity: 0, sabor: ["Chocolate Branco", "Chocolate Leite"], peso: 5  },
-    { id: 6010, name: "Croissants recheados", price: 0.30, image: "https://i.ibb.co/TzhdDpt/176.jpg", quantity: 0, peso: 5  },
-    { id: 6011, name: "Bananas", price: 0.30, image: "https://i.ibb.co/Kxw6PXPZ/177.jpg", quantity: 0, peso: 5  },
-    { id: 6012, name: "Marshmallows de frutas recheados", price: 0.30, image: "https://i.ibb.co/DfhFZYVX/178.jpg", quantity: 0, peso: 5  },
-    { id: 6013, name: "Choco nubes", price: 0.30, image: "https://i.ibb.co/hR7HtY6Z/179.jpg", quantity: 0 ,peso: 5},
-    { id: 6014, name: "Marshmallows brancos", price: 0.10, image: "https://i.ibb.co/TDf2mqwy/180.jpg", quantity: 0 , peso: 5},
-    { id: 6015, name: "Bolas de golfe", price: 0.10, image:"https://i.ibb.co/Q7bwPJyY/412.jpg", quantity: 0, peso: 5}
+    { id: 6001, name: "Marshmallow coberto de chocolate de leite", price: 0.25, image: "https://i.ibb.co/S4Z2syhw/168.jpg", quantity: 0, peso: 0.005  },
+    { id: 6002, name: "Crujitos Morango/Baunilha", price: 0.25, image: "https://i.ibb.co/mFdtJYFf/167.jpg", quantity: 0, sabor: ["Morango", "Baunilha"], peso: 0.005  },
+    { id: 6003, name: "Marshmallow branco e rosa recheado de morango", price: 0.10, image: "https://i.ibb.co/BKz0DdNX/170.jpg", quantity: 0, peso: 0.005  },
+    { id: 6004, name: "Marshmallow coberto de chocolate negro", price: 0.30, image: "https://i.ibb.co/Zz0tcpxb/169.jpg", quantity: 0, peso: 0.005  },
+    { id: 6005, name: "Recheado de morango", price: 0.15, image: "https://i.ibb.co/pB7MMHhF/171.jpg", quantity: 0, peso: 0.005  },
+    { id: 6006, name: "Recheado de framboesa", price: 0.15, image: "https://i.ibb.co/3YsnHrSv/172.jpg", quantity: 0, peso: 0.005  },
+    { id: 6007, name: "Bananas choco", price: 0.35, image: "https://i.ibb.co/mYPrGvr/173.jpg", quantity: 0, peso: 0.005  },
+    { id: 6008, name: "Choco jumbos", price: 0.90, image: "https://i.ibb.co/Q2ChzDK/174.jpg", quantity: 0, peso: 0.040 },
+    { id: 6009, name: "Crujitos de Chocolate Branco/Leite", price: 0.25, image: "https://i.ibb.co/JWsJNjZT/175.jpg", quantity: 0, sabor: ["Chocolate Branco", "Chocolate Leite"], peso: 0.005  },
+    { id: 6010, name: "Croissants recheados", price: 0.30, image: "https://i.ibb.co/TzhdDpt/176.jpg", quantity: 0, peso: 0.005  },
+    { id: 6011, name: "Bananas", price: 0.30, image: "https://i.ibb.co/Kxw6PXPZ/177.jpg", quantity: 0, peso: 0.005  },
+    { id: 6012, name: "Marshmallows de frutas recheados", price: 0.30, image: "https://i.ibb.co/DfhFZYVX/178.jpg", quantity: 0, peso: 0.005  },
+    { id: 6013, name: "Choco nubes", price: 0.30, image: "https://i.ibb.co/hR7HtY6Z/179.jpg", quantity: 0 ,peso: 0.005},
+    { id: 6014, name: "Marshmallows brancos", price: 0.10, image: "https://i.ibb.co/TDf2mqwy/180.jpg", quantity: 0 , peso: 0.005},
+    { id: 6015, name: "Bolas de golfe", price: 0.10, image:"https://i.ibb.co/Q7bwPJyY/412.jpg", quantity: 0, peso: 0.005}
 ];
 
 const products_chocolates = [
-    { id: 7001, name: "Toblerone de chocolate branco", price: 4.00, image: "https://i.ibb.co/v4NFJWgT/159.jpg", quantity: 0, peso: 100},
-    { id: 7002, name: "Toblerone", price: 4.00, image: "https://i.ibb.co/Fk3jsTY0/160.jpg", quantity: 0, peso: 100 },
-    { id: 7003, name: "Lion", price: 1.10, image: "https://i.ibb.co/ZtL6t22/161.jpg", quantity: 0, peso: 50 },
-    { id: 7004, name: "Mars", price: 1.10, image: "https://i.ibb.co/HSWngQ8/162.jpg", quantity: 0, peso: 50 },
-    { id: 7005, name: "Snickers", price: 1.10, image: "https://i.ibb.co/R4ZY5dgY/163.jpg", quantity: 0, peso: 50},
-    { id: 7006, name: "Lion de chocolate branco", price: 1.10, image: "https://i.ibb.co/gNPQZDH/164.jpg", quantity: 0, peso: 50 },
-    { id: 7007, name: "Twix", price: 1.10, image: "https://i.ibb.co/F9D8NpF/165.jpg", quantity: 0, peso: 50 },
-    { id: 7008, name: "Twix de chocolate branco", price: 1.10, image: "https://i.ibb.co/LDS7D6Yd/166.jpg", quantity: 0, peso: 50 },
+    { id: 7001, name: "Toblerone de chocolate branco", price: 4.00, image: "https://i.ibb.co/v4NFJWgT/159.jpg", quantity: 0, peso: 0.1},
+    { id: 7002, name: "Toblerone", price: 4.00, image: "https://i.ibb.co/Fk3jsTY0/160.jpg", quantity: 0, peso: 0.1 },
+    { id: 7003, name: "Lion", price: 1.10, image: "https://i.ibb.co/ZtL6t22/161.jpg", quantity: 0, peso: 0.050 },
+    { id: 7004, name: "Mars", price: 1.10, image: "https://i.ibb.co/HSWngQ8/162.jpg", quantity: 0, peso: 0.050 },
+    { id: 7005, name: "Snickers", price: 1.10, image: "https://i.ibb.co/R4ZY5dgY/163.jpg", quantity: 0, peso: 0.050},
+    { id: 7006, name: "Lion de chocolate branco", price: 1.10, image: "https://i.ibb.co/gNPQZDH/164.jpg", quantity: 0, peso: 0.050 },
+    { id: 7007, name: "Twix", price: 1.10, image: "https://i.ibb.co/F9D8NpF/165.jpg", quantity: 0, peso: 0.050 },
+    { id: 7008, name: "Twix de chocolate branco", price: 1.10, image: "https://i.ibb.co/LDS7D6Yd/166.jpg", quantity: 0, peso: 0.050 },
 ];
 
 const products_boxs = [
     { id: 8001, name: "Box Mistério", price: 0, image: "images/categoria-boxes.jpg", quantity: 0, peso: 0},
-    { id: 8002, name: "Balde 2,5 kilos", price: 30, image: "images/balde.jpeg", quantity: 0, peso: 2500 },
+    { id: 8002, name: "Balde 2,5 kilos", price: 30, image: "images/balde.jpeg", quantity: 0, peso: 2.5 },
     { id: 8003, name: "Box degustação", price:0 ,image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",quantity: 0, peso:0}
 ]
 
 const products_outros=[
-    { id: 9001, name: "Chupas com pó", price: 2.20, image: "https://i.ibb.co/8nqwYZ3K/190.jpg", quantity: 0 , peso: 60},
-    { id: 9002, name: "Dip feet com pó", price: 0.30, image: "https://i.ibb.co/5gWqwTTk/191.jpg", quantity: 0, peso: 20},
-    { id: 9003, name: "Ácido gumétrico", price: 0.40, image: "https://i.ibb.co/sJvqc0tf/192.jpg", quantity: 0, peso: 30 },
-    { id: 9004, name: "Chaves inglesas coca cola e limão", price: 0.15, image: "https://i.ibb.co/0RsZRDjL/193.jpg", quantity: 0, peso: 5 },
-    { id: 9005, name: "Chaves inglesas de melancia", price: 1.10, image: "https://i.ibb.co/sJdd6Gt6/194.jpg", quantity: 0, peso: 5 },
-    { id: 9006, name: "Rolones pinta línguas", price: 1.80, image: "https://i.ibb.co/KcnnCv9J/195.jpg", quantity: 0, peso: 100 },
-    { id: 9007, name: "Burguer jelly", price: 1.70, image: "https://i.ibb.co/HTbWpfN8/196.jpg", quantity: 0, peso: 100 },
-    { id: 9008, name: "Chupas boca de pato", price: 2.20, image: "https://i.ibb.co/jkvxY1mP/197.jpg", quantity: 0, peso: 50 },
-    { id: 9009, name: "Spray", price: 2.50, image: "https://i.ibb.co/YBRKpD9G/198.jpg", quantity: 0, peso: 100  },
-    { id: 9010, name: "Pacotes Kit smile", price: 1.20, image: "https://i.ibb.co/9HVpSDYG/199.jpg", quantity: 0, peso: 90},
-    { id: 9011, name: "Skittles", price: 2.50, image: "https://i.ibb.co/21nHyndY/201.jpg", quantity: 0, peso: 160 },
-    { id: 9012, name: "Nerds", price: 3.00, image: "https://i.ibb.co/GQc2vjC3/200.jpg", quantity: 0, peso: 160 },
-    { id: 9013, name: "Delijelly", price: 0.10, image: "https://i.ibb.co/rKtSGGz1/202.jpg", quantity: 0, peso: 10 },
-    { id: 9014, name: "Colares", price: 0.40, image: "https://i.ibb.co/DfYtd5J4/203.jpg", quantity: 0, peso:  20},
-    { id: 9015, name: "Chaves arco-íris", price: 0.15, image: "https://i.ibb.co/Fb2qW4hW/205.jpg", quantity: 0,peso: 5},
-    { id: 9016, name: "Fini roller", price: 0.55, image: "https://i.ibb.co/DftmZGw1/204.jpg", quantity: 0, peso:  20},
-    { id: 9017, name: "Chaves inglesas de arco íris", price: 0.15, image: "https://i.ibb.co/Whq9t8G/206.jpg", quantity: 0, peso: 5 },
-    { id: 9018, name: "Tartes recheadas", price: 0.25, image: "https://i.ibb.co/rfGMXcGb/211.jpg", quantity: 0, peso: 20}
+    { id: 9001, name: "Chupas com pó", price: 2.20, image: "https://i.ibb.co/8nqwYZ3K/190.jpg", quantity: 0 , peso: 0.060},
+    { id: 9002, name: "Dip feet com pó", price: 0.30, image: "https://i.ibb.co/5gWqwTTk/191.jpg", quantity: 0, peso: 0.020},
+    { id: 9003, name: "Ácido gumétrico", price: 0.40, image: "https://i.ibb.co/sJvqc0tf/192.jpg", quantity: 0, peso: 0.030 },
+    { id: 9004, name: "Chaves inglesas coca cola e limão", price: 0.15, image: "https://i.ibb.co/0RsZRDjL/193.jpg", quantity: 0, peso: 0.005 },
+    { id: 9005, name: "Chaves inglesas de melancia", price: 1.10, image: "https://i.ibb.co/sJdd6Gt6/194.jpg", quantity: 0, peso: 0.005 },
+    { id: 9006, name: "Rolones pinta línguas", price: 1.80, image: "https://i.ibb.co/KcnnCv9J/195.jpg", quantity: 0, peso: 0.100 },
+    { id: 9007, name: "Burguer jelly", price: 1.70, image: "https://i.ibb.co/HTbWpfN8/196.jpg", quantity: 0, peso: 0.100 },
+    { id: 9008, name: "Chupas boca de pato", price: 2.20, image: "https://i.ibb.co/jkvxY1mP/197.jpg", quantity: 0, peso: 0.050 },
+    { id: 9009, name: "Spray", price: 2.50, image: "https://i.ibb.co/YBRKpD9G/198.jpg", quantity: 0, peso: 0.100  },
+    { id: 9010, name: "Pacotes Kit smile", price: 1.20, image: "https://i.ibb.co/9HVpSDYG/199.jpg", quantity: 0, peso: 0.090},
+    { id: 9011, name: "Skittles", price: 2.50, image: "https://i.ibb.co/21nHyndY/201.jpg", quantity: 0, peso: 0.160 },
+    { id: 9012, name: "Nerds", price: 3.00, image: "https://i.ibb.co/GQc2vjC3/200.jpg", quantity: 0, peso: 0.160 },
+    { id: 9013, name: "Delijelly", price: 0.10, image: "https://i.ibb.co/rKtSGGz1/202.jpg", quantity: 0, peso: 0.010 },
+    { id: 9014, name: "Colares", price: 0.40, image: "https://i.ibb.co/DfYtd5J4/203.jpg", quantity: 0, peso:  0.020},
+    { id: 9015, name: "Chaves arco-íris", price: 0.15, image: "https://i.ibb.co/Fb2qW4hW/205.jpg", quantity: 0,peso: 0.005},
+    { id: 9016, name: "Fini roller", price: 0.55, image: "https://i.ibb.co/DftmZGw1/204.jpg", quantity: 0, peso:  0.020},
+    { id: 9017, name: "Chaves inglesas de arco íris", price: 0.15, image: "https://i.ibb.co/Whq9t8G/206.jpg", quantity: 0, peso: 0.005 },
+    { id: 9018, name: "Tartes recheadas", price: 0.25, image: "https://i.ibb.co/rfGMXcGb/211.jpg", quantity: 0, peso: 0.020}
 ];
 
 const products_namorados=[
-    { id: 99994, name: "Coração Rose Gold", price: 17.50, image: "https://i.ibb.co/Tx48tStC/304.jpg", quantity: 0 , peso: 1300},
-    { id: 99995, name: "Redonda Prateada", price: 17.50, image: "https://i.ibb.co/prKq8rpY/305.jpg", quantity: 0 ,peso: 1300},
-    { id: 99996, name: "Coração Prateado", price: 17.50, image: "https://i.ibb.co/fV83RtcC/307.jpg", quantity: 0 , peso: 1300},
-    { id: 99997, name: "Coração Dourado", price: 17.50, image: "https://i.ibb.co/M5kbQDzR/308.jpg", quantity: 0 , peso: 1300},
-    { id: 99998, name: "Redonda Dourada", price: 17.50, image: "https://i.ibb.co/xKqMJY5D/309.jpg", quantity: 0 , peso: 1300},
+    { id: 99994, name: "Coração Rose Gold", price: 17.50, image: "https://i.ibb.co/Tx48tStC/304.jpg", quantity: 0 , peso: 0.1300},
+    { id: 99995, name: "Redonda Prateada", price: 17.50, image: "https://i.ibb.co/prKq8rpY/305.jpg", quantity: 0 ,peso: 0.1300},
+    { id: 99996, name: "Coração Prateado", price: 17.50, image: "https://i.ibb.co/fV83RtcC/307.jpg", quantity: 0 , peso: 0.1300},
+    { id: 99997, name: "Coração Dourado", price: 17.50, image: "https://i.ibb.co/M5kbQDzR/308.jpg", quantity: 0 , peso: 0.1300},
+    { id: 99998, name: "Redonda Dourada", price: 17.50, image: "https://i.ibb.co/xKqMJY5D/309.jpg", quantity: 0 , peso: 0.1300},
 ]
 
-let global_total = 0;
 let global_nGomasKilo = 0;
 let gomasKilo_carrinho = false;
 
 function addKilosRandom(){
     const peso = document.getElementById('kilos');
-    global_total += parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50;
 
     let product = null;
 
     if (window.location.href.includes("gomaskilo.html")) {
-        product = { id: 10000+global_nGomasKilo, name : "Gomas ao Kilo (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
+        product = { 
+            id: 10000+global_nGomasKilo, 
+            name : "Gomas ao Kilo (Mix)", 
+            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            peso: peso.value, 
+            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"
+        }
         const allSelected_gomas = document.getElementsByClassName("selected");
         const elementsArray = Array.from(allSelected_gomas);
         for (let i = 0; i < elementsArray.length; i++) {
@@ -286,7 +290,12 @@ function addKilosRandom(){
         }
     }
     else if(window.location.href.includes("tuboslinhaslinguas.html")){
-        product = { id: 10000+global_nGomasKilo, name : "Tubos, Linhas e Línguas (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
+        product = { 
+            id: 10000+global_nGomasKilo, 
+            name : "Tubos, Linhas e Línguas (Mix)", 
+            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)),  
+            peso: peso.value, 
+            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
         const allSelected_gomas = document.getElementsByClassName("selected");
         const elementsArray = Array.from(allSelected_gomas);
         for (let i = 0; i < elementsArray.length; i++) {
@@ -296,7 +305,12 @@ function addKilosRandom(){
         }
     }
     else if(window.location.href.includes("gomastuboslinhaslinguas.html")){
-        product = { id: 10000+global_nGomasKilo, name : "Gomas, Tubos, Linhas e Línguas (Mix)", peso: parseFloat(peso.value), price: parseFloat(peso.value) * 9.50, peso: parseFloat(peso.value), image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
+        product = { 
+            id: 10000+global_nGomasKilo, 
+            name : "Gomas, Tubos, Linhas e Línguas (Mix)", 
+            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            peso: peso.value, 
+            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
         const allSelected_gomas = document.getElementsByClassName("selected");
         const elementsArray = Array.from(allSelected_gomas);
         for (let i = 0; i < elementsArray.length; i++) {
@@ -319,8 +333,11 @@ function addKilosRandom(){
 function addKilos(){
     const addKilos_btn = document.getElementById('add_kilos');
 
+    console.log(cart_gomasKilo);
+    console.log(cart_tuboslinhaslinguas);
+    console.log(cart_gomastuboslinnhaslinguas);
+
     const peso = document.getElementById('kilos');
-    global_total += parseFloat(peso.value) * parseFloat(peso.value) >= 2 ? 9 : 9.50;
 
     let product = null;
 
@@ -328,9 +345,8 @@ function addKilos(){
         product = { 
             id: 10000+global_nGomasKilo, 
             name : "Gomas ao Kilo", 
-            peso: parseFloat(peso.value),
-            price: parseFloat(peso.value) * 9.50, 
-            peso: parseFloat(peso.value), 
+            peso: peso.value,
+            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
@@ -350,9 +366,8 @@ function addKilos(){
         product = { 
             id: 10000+global_nGomasKilo, 
             name : "Tubos, Linhas e Línguas", 
-            peso: parseFloat(peso.value),
-            price: parseFloat(peso.value) * 9.50, 
-            peso: parseFloat(peso.value), 
+            peso: peso.value,
+            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
@@ -372,9 +387,8 @@ function addKilos(){
         product = {
             id: 10000+global_nGomasKilo,
             name : "Gomas, Tubos, Linhas e Línguas",
-            peso: parseFloat(peso.value),
+            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             price: parseFloat(peso.value)* 9.50,
-            peso: parseFloat(peso.value),
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
@@ -440,7 +454,12 @@ function updateCartPopup() {
         if(peso.value != ''){
             addKilosRandom.disabled = false;
             if(peso.value >= 1){
-                addKilos.textContent = `Adicionar (min.${parseInt(peso.value)*10} | máx.${parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)})`;
+                addKilos.textContent = `Adicionar (min.${Math.round(peso.value) == 1 ? (Math.round(peso.value)*10) + 2 : (Math.round(peso.value)*10)} | máx.${parseInt(peso.value)*10+(parseInt(peso.value)*10+ 10)})`;
+            }
+            else{
+                const min = 1;
+                const max = 3;
+                addKilos.textContent = `Adicionar (min.${(Math.round(peso.value*10)%10)*min} | máx.${(Math.round(peso.value*10)%10)*max})`;
             }
         }
         else{
@@ -978,7 +997,7 @@ document.querySelectorAll('.selecionar-box').forEach(button => {
         if(productId == 8001){
             const product = {...products_boxs.find(item => item.id == productId)};
             product.price = parseFloat(price.value);
-            product.peso = parseInt(price.value)*10;
+            product.peso = parseInt(price.value)/10;
             product.quantity = 1;
             cart.push(product);
             showNotification(`${product.name} foi adicionado/a!`);
@@ -987,7 +1006,7 @@ document.querySelectorAll('.selecionar-box').forEach(button => {
             const product = {...products_boxs.find(item => item.id == productId)};
             product.price = price_degustacao.value == "1" ? 13 : 23;
             product.quantity = 1;
-            product.peso = price_degustacao.value == "1" ? 1000 : 2300;
+            product.peso = price_degustacao.value == "1" ? 1 : 2;
             product.name += price_degustacao.value == "1" ? " (1 goma)" : " (2 gomas)";
             cart.push(product);
             showNotification(`${product.name} foi adicionado/a!`);
@@ -1242,8 +1261,10 @@ function generatePDF() {
 
     // Add total price at the end
     yOffset += 8;
+    doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg`) - 10), yOffset);
+    yOffset += 5;
     let endtext = '';
-    doc.setFontSize(13);
+    doc.setFontSize(12);
     if(desconto_aplicado){
         endtext = `Desconto "${nome_desconto_aplicado}" [${percentagem_desconto}%] aplicado`;
     }
@@ -1272,9 +1293,6 @@ function generatePDF() {
     updateCartCount();
     updateCartPopup();
 
-    // Save PDF as Blob and create a download URL
-    const pdfBlob = doc.output("blob");
-    const pdfUrl = URL.createObjectURL(pdfBlob);
 
     // Create a WhatsApp share link
     const message = encodeURIComponent("Quero realizar uma compra. Vou enviar o pdf do meu carrinho!");
@@ -1409,7 +1427,8 @@ function switchToCart() {
 
 
 function applyDiscount(){
-    const code = document.getElementById('desconto').value;
+    const code = document.getElementById('desconto');
+    const code_btn = document.getElementById('aplicar-desconto');
 
     if (desconto_aplicado){
         showNotification(`Desconto já aplicado!`);
@@ -1419,12 +1438,12 @@ function applyDiscount(){
     }
 
     codigos_desconto.forEach(codigo => {
-        if (codigo.code.toUpperCase() === code.toUpperCase() && !desconto_aplicado) {
+        if (codigo.code.toUpperCase() === code.value.toUpperCase() && !desconto_aplicado) {
             const total = document.getElementById('total-price');
             const total2 = document.getElementById('total-price2');
 
             const totalValue = parseFloat(total.textContent.split(' ')[1].replace('€', ''));
-            const discount = totalValue * codigo.discount / 100;
+            const discount = (totalValue - preco_peso)  * codigo.discount / 100;
 
             total.textContent = `Total: ${(totalValue - discount).toFixed(2)}€`;
             total2.textContent = `Total: ${(totalValue - discount).toFixed(2)}€`;
@@ -1435,6 +1454,9 @@ function applyDiscount(){
             nome_desconto_aplicado = code;
 
             showNotification(`Desconto de ${percentagem_desconto}% aplicado!`);
+
+            code.disabled = true;
+            code_btn.disabled = true;
         }
     });
 
@@ -1469,6 +1491,9 @@ const countries = [
     { name: "Suécia", kg_1: 15, kg_2: 16.50, kg_3: 19, kg_4:22, kg_5: 23.50, kg_6: 31.50, kg_7: 31.50, kg_8: 31.50, kg_9: 31.50, kg_10: 31.50, kg_11: 45, kg_12: 45, kg_13: 45, kg_14: 45, kg_15: 45, kg_16: 59, kg_17: 59, kg_18: 59, kg_19: 59, kg_20: 59},
 ]
 
+let pesoEncomenda = 0;
+let preco_peso = 0;
+
 function calcularPortes(){
     if(compra_status == 1){
         let pesoTotal = 0;
@@ -1477,13 +1502,17 @@ function calcularPortes(){
         cart.forEach(item => {
             if(item.peso){
                 pesoTotal += item.peso * item.quantity;
+                console.log(item.peso * item.quantity);
             }
             else{
-                pesoTotal += 10 * item.quantity;
+                console.log(10 * item.quantity);
+                pesoTotal += 0.01 * item.quantity;
             }
         });
 
         const country = countries.find(c => c.name === countryName);
+
+        console.log('TOTAL: ' + pesoTotal);
 
         let portes = 0;
         for (let i = 1; i <= 20; i++) {
@@ -1492,6 +1521,10 @@ function calcularPortes(){
                 break;
             }
         }
+        if(pesoTotal > 20)
+            portes = country.kg_20;
+
+        preco_peso = portes;
 
         const totalPrice = document.getElementById('total-price');
         const totalPrice2 = document.getElementById('total-price2');
@@ -1502,11 +1535,13 @@ function calcularPortes(){
 
         totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
         totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
+
+        pesoEncomenda = pesoTotal;
     }
 }
 
 let global_portes = 0;
-let compra_status = 1; // 1 - ENCOMENDA, 0 - MAOSd
+let compra_status = 1; // 1 - ENCOMENDA, 0 - MAOS
 
 function em_mao(){
     const em_mao = document.getElementById('em-mao');
@@ -1589,6 +1624,11 @@ document.getElementById('cart-icon').addEventListener('click', function() {
 document.getElementById('close-popup-span').addEventListener('click', function() {
     document.getElementById('cart-popup').style.display = 'none'; // Hide popup
     desconto_aplicado = false;
+
+    document.getElementById('aplicar-desconto').disabled = false;
+    document.getElementById('desconto').disabled = false;
+    document.getElementById('desconto').value = '';
+
     const name = document.getElementById('user-name');
     const name2 = document.getElementById('user-name2');
     const email = document.getElementById('user-email');
