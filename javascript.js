@@ -341,8 +341,8 @@ function addKilos(){
         product = {
             id: 10000+global_nGomasKilo,
             name : "Gomas, Tubos, Linhas e Línguas",
+            peso: peso.value,
             price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
-            price: parseFloat(peso.value)* 9.50,
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
@@ -1316,6 +1316,9 @@ function generatePDF() {
 
     yOffset += 8;
     doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${(pesoEncomenda*1000).toFixed(2)} gr`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg = ${pesoEncomenda*1000} gr`) - 10), yOffset);
+    yOffset += 5;
+
+    doc.text(`Portes: ${portes.toFixed(2)}€`, (pageWidth - doc.getTextWidth(`Portes: ${portes.toFixed(2)}€`) - 10), yOffset);
     yOffset += 5;
 
     let endtext = '';
