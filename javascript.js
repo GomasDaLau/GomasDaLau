@@ -242,7 +242,7 @@ const products_outros=[
     { id: 9002, name: "Dip feet com pó", price: 0.30, image: "https://i.ibb.co/5gWqwTTk/191.jpg", quantity: 0, peso: 0.020},
     { id: 9003, name: "Ácido gumétrico", price: 0.40, image: "https://i.ibb.co/sJvqc0tf/192.jpg", quantity: 0, peso: 0.030 },
     { id: 9004, name: "Chaves inglesas coca cola e limão", price: 0.15, image: "https://i.ibb.co/0RsZRDjL/193.jpg", quantity: 0, peso: 0.005 },
-    { id: 9005, name: "Chaves inglesas de melancia", price: 1.10, image: "https://i.ibb.co/sJdd6Gt6/194.jpg", quantity: 0, peso: 0.005 },
+    { id: 9005, name: "Chaves inglesas de melancia", price: 0.10, image: "https://i.ibb.co/sJdd6Gt6/194.jpg", quantity: 0, peso: 0.005 },
     { id: 9006, name: "Rolones pinta línguas", price: 1.80, image: "https://i.ibb.co/KcnnCv9J/195.jpg", quantity: 0, peso: 0.100 },
     { id: 9007, name: "Burguer jelly", price: 1.70, image: "https://i.ibb.co/HTbWpfN8/196.jpg", quantity: 0, peso: 0.100 },
     { id: 9008, name: "Chupas boca de pato", price: 2.20, image: "https://i.ibb.co/jkvxY1mP/197.jpg", quantity: 0, peso: 0.050 },
