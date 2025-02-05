@@ -509,6 +509,8 @@ function updateCartPopup() {
         }
 
         cartItemsList.appendChild(itemElement);
+
+        console.log("PESO: " + item.peso);
     });
     
 
@@ -1299,7 +1301,9 @@ function generatePDF() {
     // Download the PDF
     doc.save('carrinho-gomasdalau.pdf');
 
+    switchToCart();
     document.getElementById('cart-popup').style.display = 'none';
+    
 
     updateCartCount();
     updateCartPopup();
@@ -1394,19 +1398,32 @@ function handleInputChange() {
     const download_btn = document.getElementById('download-pdf-btn');
 
     // Ensure all required fields are filled
-    if (
-        name.value.trim() &&
-        name2.value.trim() &&
-        email.value.trim() &&
-        country.value.trim() &&
-        city.value.trim() &&
-        address.value.trim() &&
-        postalcode.value.trim() &&
-        phone.value.trim()
-    ) {
-        download_btn.disabled = false;
-    } else {
-        download_btn.disabled = true;
+    if(compra_status == 1){
+        if (
+            name.value.trim() &&
+            name2.value.trim() &&
+            email.value.trim() &&
+            country.value.trim() &&
+            city.value.trim() &&
+            address.value.trim() &&
+            postalcode.value.trim() &&
+            phone.value.trim()
+        ) {
+            download_btn.disabled = false;
+        } else {
+            download_btn.disabled = true;
+        }
+    }else{
+        if (
+            name.value.trim() &&
+            name2.value.trim() &&
+            email.value.trim() &&
+            phone.value.trim()
+        ) {
+            download_btn.disabled = false;
+        } else {
+            download_btn.disabled = true;
+        }
     }
 }
 
@@ -1536,18 +1553,24 @@ let pesoEncomenda = 0;
 let preco_peso = 0;
 
 function calcularPortes(){
-    if(compra_status == 1){
+    
         let pesoTotal = 0;
         const countryName = document.getElementById('user-country').value;
 
         cart.forEach(item => {
             if(item.peso){
                 pesoTotal += item.peso * item.quantity;
+                console.log("calc PESO: " + item.peso);
             }
             else{
                 pesoTotal += 0.01 * item.quantity;
+                console.log("calc PESO: " + 0.01);
             }
         });
+
+        pesoEncomenda = pesoTotal;
+
+    if(compra_status == 1){
 
         const country = countries.find(c => c.name === countryName);
 
@@ -1572,8 +1595,6 @@ function calcularPortes(){
 
         totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
         totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
-
-        pesoEncomenda = pesoTotal;
     }
 }
 
@@ -1588,18 +1609,40 @@ function em_mao(){
 
     let total = parseFloat(totalPrice.textContent.split(' ')[1].replace('€', ''));
 
+    const address = document.getElementById('user-address');
+    const postal_code = document.getElementById('user-postalcode');
+    const country = document.getElementById('user-country');
+    const city = document.getElementById('user-city');
+    const name = document.getElementById('user-name');
+    const name2 = document.getElementById('user-name2');
+    const email = document.getElementById('user-email');
+    const phone = document.getElementById('user-phone');
+    const download_btn = document.getElementById('download-pdf-btn');
+
     // SWITCH BETWEEN COLORS ON CLICK
     if (compra_status === 0) {
         em_mao.style.backgroundColor = '#FD8D81';
         compra_status = 1;
 
-        const address = document.getElementById('user-address');
-        const postal_code = document.getElementById('user-postalcode');
-        const country = document.getElementById('user-country');
-
         address.disabled = false;
         postal_code.disabled = false;
         country.disabled = false;
+        city.disabled = false;
+
+        if (
+            name.value.trim() &&
+            name2.value.trim() &&
+            email.value.trim() &&
+            country.value.trim() &&
+            city.value.trim() &&
+            address.value.trim() &&
+            postal_code.value.trim() &&
+            phone.value.trim()
+        ) {
+            download_btn.disabled = false;
+        } else {
+            download_btn.disabled = true;
+        }
         
         calcularPortes();
     } else {
@@ -1609,9 +1652,6 @@ function em_mao(){
         total -= global_portes;
         global_portes = 0;
 
-        const address = document.getElementById('user-address');
-        const postal_code = document.getElementById('user-postalcode');
-        const country = document.getElementById('user-country');
         address.value = '';
         postal_code.value = '';
         country.value = '';
@@ -1623,9 +1663,20 @@ function em_mao(){
 
         totalPrice.textContent = `Total: ${total.toFixed(2)}€`;
         totalPrice2.textContent = `Total: ${total.toFixed(2)}€`;
-    }
 
-    
+        if (
+            name.value.trim() &&
+            name2.value.trim() &&
+            email.value.trim() &&
+            phone.value.trim()
+        ) {
+            download_btn.disabled = false;
+        } else {
+            download_btn.disabled = true;
+        }
+
+        calcularPortes()
+    }
 
     
 }
@@ -1747,7 +1798,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // DISABLE DEV TOOLS
-document.addEventListener('contextmenu', (e) => e.preventDefault());
+/*document.addEventListener('contextmenu', (e) => e.preventDefault());
 
 function ctrlShiftKey(e, keyCode) {
   return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
@@ -1763,4 +1814,4 @@ document.onkeydown = (e) => {
     (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
   )
     return false;
-};
+};*/
