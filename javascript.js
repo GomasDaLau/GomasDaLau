@@ -1360,7 +1360,7 @@ function generatePDF() {
     const whatsappUrl = `https://wa.me/351934456979?text=${message}`;
 
     // Open WhatsApp sharing window
-    window.open(whatsappUrl, "_blank");
+    // window.open(whatsappUrl, "_blank");
 }
 
 
