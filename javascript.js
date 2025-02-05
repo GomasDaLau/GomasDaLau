@@ -129,7 +129,7 @@ const products_tuboslinhas = [
     { id: 1001, name: "Tranças de arco íris", price: 0.15, image: "https://i.ibb.co/7Np9Zby/105.jpg", quantity: 0 },
     { id: 1002, name: "Tubos de morango ácidos", price: 0.10, image: "https://i.ibb.co/5MjgZy6/106.jpg", quantity: 0 },
     { id: 1003, name: "Tubos de framboesa recheados", price: 0.15, image: "https://i.ibb.co/qNmqs49/107.jpg", quantity: 0 },
-    { id: 1004, name: "Tubos multifrutos ácidos", price: 0.10, image: "https://i.ibb.co/MN9h5qv/108.jpghttps://i.ibb.co/2305MwZt/Whats-App-Image-2025-02-03-at-19-35-16.jpg", quantity: 0 },
+    { id: 1004, name: "Tubos multifrutos ácidos", price: 0.10, image: "https://i.ibb.co/2305MwZt/Whats-App-Image-2025-02-03-at-19-35-16.jpg", quantity: 0 },
     { id: 1005, name: "Tubos de melancia recheados", price: 0.15, image: "https://i.ibb.co/xsgQ6CT/109.jpg", quantity: 0 },
     { id: 1006, name: "Tubos de pastilha", price: 0.15, image: "https://i.ibb.co/b10ycyc/110.jpg", quantity: 0 },
     { id: 1007, name: "Tubos de iogurte", price: 0.15, image: "https://i.ibb.co/2qJnBwY/111.jpg", quantity: 0 },
