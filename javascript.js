@@ -269,62 +269,46 @@ const products_namorados=[
 let global_nGomasKilo = 0;
 let gomasKilo_carrinho = false;
 
-function addKilosRandom(){
+function addKilosRandom() {
     const peso = document.getElementById('kilos');
 
     let product = null;
 
     if (window.location.href.includes("gomaskilo.html")) {
         product = { 
-            id: 10000+global_nGomasKilo, 
-            name : "Gomas ao Kilo (Mix)", 
-            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            id: 10000 + global_nGomasKilo, 
+            name: "Gomas ao Kilo (Mix)", 
+            price: peso.value >= 1 ? peso.value * 9.50 : (peso.value * 9.50).toFixed(2), 
             peso: peso.value, 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"
-        }
-        const allSelected_gomas = document.getElementsByClassName("selected");
-        const elementsArray = Array.from(allSelected_gomas);
-        for (let i = 0; i < elementsArray.length; i++) {
-            elementsArray[i].classList.remove("selected");
-            const button = produtoDiv.querySelector('.selecionar');
-            button.textContent = "Selecionar";
-        }
-    }
-    else if(window.location.href.includes("tuboslinhaslinguas.html")){
+        };
+        clearSelection(".selecionar");
+    } 
+    else if (window.location.href.includes("gomastuboslinhaslinguas.html")) {
         product = { 
-            id: 10000+global_nGomasKilo, 
-            name : "Tubos, Linhas e Línguas (Mix)", 
-            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)),  
+            id: 10000 + global_nGomasKilo, 
+            name: "Gomas, Tubos, Linhas e Línguas (Mix)", 
+            price: peso.value >= 1 ? peso.value * 9.50 : (peso.value * 9.50).toFixed(2), 
             peso: peso.value, 
-            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
-        const allSelected_gomas = document.getElementsByClassName("selected");
-        const elementsArray = Array.from(allSelected_gomas);
-        for (let i = 0; i < elementsArray.length; i++) {
-            elementsArray[i].classList.remove("selected");
-            const button = produtoDiv.querySelector('.selecionar-tll');
-            button.textContent = "Selecionar";
-        }
-    }
-    else if(window.location.href.includes("gomastuboslinhaslinguas.html")){
+            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"
+        };
+        clearSelection(".selecionar-gtll");
+    } 
+    else if (window.location.href.includes("tuboslinhaslinguas.html")) {
         product = { 
-            id: 10000+global_nGomasKilo, 
-            name : "Gomas, Tubos, Linhas e Línguas (Mix)", 
-            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            id: 10000 + global_nGomasKilo, 
+            name: "Tubos, Linhas e Línguas (Mix)", 
+            price: peso.value >= 1 ? peso.value * 9.50 : (peso.value * 9.50).toFixed(2), 
             peso: peso.value, 
-            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
-        const allSelected_gomas = document.getElementsByClassName("selected");
-        const elementsArray = Array.from(allSelected_gomas);
-        for (let i = 0; i < elementsArray.length; i++) {
-            elementsArray[i].classList.remove("selected");
-            const button = produtoDiv.querySelector('.selecionar-gtll');
-            button.textContent = "Selecionar";
-        }
+            image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"
+        };
+        clearSelection(".selecionar-tll");
     }
 
     cart.push({ ...product, quantity: 1 });
 
     peso.value = '';
-    global_nGomasKilo += 1; 
+    global_nGomasKilo += 1;
 
     showNotification(`${product.name} foi adicionado/a!`);
 
@@ -347,13 +331,7 @@ function addKilos(){
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
-        const allSelected_gomas = document.getElementsByClassName("selected");
-        const elementsArray = Array.from(allSelected_gomas);
-        for (let i = 0; i < elementsArray.length; i++) {
-            elementsArray[i].classList.remove("selected");
-            const button = elementsArray[i].querySelector('.selecionar');
-            button.textContent = "Selecionar";
-        }
+        clearSelection(".selecionar");
 
         global_nGomasKilo += 1;
 
@@ -369,13 +347,7 @@ function addKilos(){
             gomas : [],
         }
 
-        const allSelected_gomas = document.getElementsByClassName("selected");
-        const elementsArray = Array.from(allSelected_gomas);
-        for (let i = 0; i < elementsArray.length; i++) {
-            elementsArray[i].classList.remove("selected");
-            const button = elementsArray[i].querySelector('.selecionar-gtll');
-            button.textContent = "Selecionar";
-        }
+        clearSelection(".selecionar-gtll");
 
         global_nGomasKilo += 1;
 
@@ -390,13 +362,8 @@ function addKilos(){
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
-        const allSelected_gomas = document.getElementsByClassName("selected");
-        const elementsArray = Array.from(allSelected_gomas);
-        for (let i = 0; i < elementsArray.length; i++) {
-            elementsArray[i].classList.remove("selected");
-            const button = elementsArray[i].querySelector('.selecionar-tll');
-            button.textContent = "Selecionar";
-        }
+        
+        clearSelection(".selecionar-tll");
 
         global_nGomasKilo += 1;
 
@@ -418,6 +385,18 @@ function addKilos(){
 
     updateCartCount();
     updateCartPopup();
+}
+function clearSelection(buttonClass) {
+    const allSelected = document.getElementsByClassName("selected");
+    const elementsArray = Array.from(allSelected);
+    
+    elementsArray.forEach(element => {
+        element.classList.remove("selected");
+        const button = element.querySelector(buttonClass);
+        if (button) {
+            button.textContent = "Selecionar";
+        }
+    });
 }
 
 // Function to update cart count
