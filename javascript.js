@@ -192,7 +192,8 @@ const products_gomasxxl = [
     { id: 4008, name: "Cerejas [XXL]", price: 0.40, image: "https://i.ibb.co/cctwbdHr/405.jpg", quantity: 0 },
     { id: 4009, name: "Rãs [XXL]", price: 0.40, image: "https://i.ibb.co/JRK0CWFK/408.jpg", quantity: 0 },
     { id: 4010, name: "Caveiras [XXL]", price: 0.50, image: "https://i.ibb.co/tp2Bhg9c/410.jpg", quantity: 0 },
-    { id: 4011, name: "Morangos Ácidos [XXL]", price: 0.50, image: "https://i.ibb.co/QFfHc8H8/406.jpg", quantity: 0 }
+    { id: 4011, name: "Morangos Ácidos [XXL]", price: 0.50, image: "https://i.ibb.co/QFfHc8H8/406.jpg", quantity: 0 },
+    { id: 4012, name: "Goma Metro [XXL]", price: 2.50, image: "https://i.ibb.co/hJ0PcFBb/metro.jpg", quantity: 0 }
 ];
 
 const products_gomaspicantes = [
@@ -277,7 +278,7 @@ function addKilosRandom(){
         product = { 
             id: 10000+global_nGomasKilo, 
             name : "Gomas ao Kilo (Mix)", 
-            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             peso: peso.value, 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"
         }
@@ -293,7 +294,7 @@ function addKilosRandom(){
         product = { 
             id: 10000+global_nGomasKilo, 
             name : "Tubos, Linhas e Línguas (Mix)", 
-            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)),  
+            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)),  
             peso: peso.value, 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
         const allSelected_gomas = document.getElementsByClassName("selected");
@@ -308,7 +309,7 @@ function addKilosRandom(){
         product = { 
             id: 10000+global_nGomasKilo, 
             name : "Gomas, Tubos, Linhas e Línguas (Mix)", 
-            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             peso: peso.value, 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png"}
         const allSelected_gomas = document.getElementsByClassName("selected");
@@ -333,10 +334,6 @@ function addKilosRandom(){
 function addKilos(){
     const addKilos_btn = document.getElementById('add_kilos');
 
-    console.log(cart_gomasKilo);
-    console.log(cart_tuboslinhaslinguas);
-    console.log(cart_gomastuboslinnhaslinguas);
-
     const peso = document.getElementById('kilos');
 
     let product = null;
@@ -346,7 +343,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo, 
             name : "Gomas ao Kilo", 
             peso: peso.value,
-            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
@@ -367,7 +364,7 @@ function addKilos(){
             id: 10000+global_nGomasKilo, 
             name : "Tubos, Linhas e Línguas", 
             peso: peso.value,
-            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
         }
@@ -387,7 +384,7 @@ function addKilos(){
         product = {
             id: 10000+global_nGomasKilo,
             name : "Gomas, Tubos, Linhas e Línguas",
-            price: peso.value >= 2 ? peso.value * 9 : peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
+            price: peso.value >= 1 ? peso.value * 9.50 : (Math.round((peso.value * 10)%10)), 
             price: parseFloat(peso.value)* 9.50,
             image: "https://i.ibb.co/bMYB4TYL/Captura-de-ecr-2025-02-04-034018.png",
             gomas : [],
@@ -548,6 +545,14 @@ function updateCartPopup() {
                 const btn = document.getElementById('next-btn');
                 btn.disabled = true;
             }*/
+
+            const continuebtn = document.getElementById('next-btn');
+            if(cart.length == 0){
+                continuebtn.disabled = true;
+            }
+            else{
+                continuebtn.disabled = false;
+            }
             
             updateCartCount(); // Update cart count
             updateCartPopup(); // Refresh cart popup
@@ -1004,7 +1009,7 @@ document.querySelectorAll('.selecionar-box').forEach(button => {
         }
         else if(productId == 8003){
             const product = {...products_boxs.find(item => item.id == productId)};
-            product.price = price_degustacao.value == "1" ? 13 : 23;
+            product.price = price_degustacao.value == "1" ? 13 : 25;
             product.quantity = 1;
             product.peso = price_degustacao.value == "1" ? 1 : 2;
             product.name += price_degustacao.value == "1" ? " (1 goma)" : " (2 gomas)";
@@ -1156,8 +1161,8 @@ function generatePDF() {
 
     // Add logo image to the top right corner
     const logoUrl = 'images/logo.png'; // Replace with the path to your logo
-    const logoWidth = 120; // Set the width of the logo (you can adjust this)
-    const logoHeight = 25; // Set the height of the logo (you can adjust this)
+    const logoWidth = 140; // Set the width of the logo (you can adjust this)
+    const logoHeight = 18; // Set the height of the logo (you can adjust this)
     const xPositionLogo = (pageWidth/2) - (logoWidth/2); 
     const yPositionLogo = 10; // 10px from the top edge
 
@@ -1177,6 +1182,7 @@ function generatePDF() {
     let name2 = document.getElementById('user-name2').value;
     let email = document.getElementById('user-email').value;
     let country = document.getElementById('user-country').value;
+    let city = document.getElementById('user-city').value;
     let address = document.getElementById('user-address').value;
     let postalcode = document.getElementById('user-postalcode').value;
     let phone = document.getElementById('user-phone').value;
@@ -1186,6 +1192,7 @@ function generatePDF() {
     doc.text(`Nome: ${name} ${name2}`, 10, yOffset); yOffset += 6;
     doc.text(`Email: ${email}`, 10, yOffset); yOffset += 6;
     doc.text(`País: ${country}`, 10, yOffset); yOffset += 6;
+    doc.text(`Cidade: ${city}`, 10, yOffset); yOffset += 6;
     doc.text(`Morada: ${address}`, 10, yOffset); yOffset += 6;
     doc.text(`Código Postal: ${postalcode}`, 10, yOffset); yOffset += 6;
     doc.text(`Telefone: ${phone}`, 10, yOffset); yOffset += 15;
@@ -1260,11 +1267,14 @@ function generatePDF() {
     });
 
     // Add total price at the end
+    doc.setFontSize(13);
+
     yOffset += 8;
     doc.text(`Peso total: ${pesoEncomenda.toFixed(2)} kg`, (pageWidth - doc.getTextWidth(`Peso total: ${pesoEncomenda.toFixed(2)} kg`) - 10), yOffset);
     yOffset += 5;
+
     let endtext = '';
-    doc.setFontSize(12);
+
     if(desconto_aplicado){
         endtext = `Desconto "${nome_desconto_aplicado}" [${percentagem_desconto}%] aplicado`;
     }
@@ -1273,7 +1283,7 @@ function generatePDF() {
     doc.text(endtext, (pageWidth - doc.getTextWidth(endtext) - 10), yOffset);
 
     yOffset +=5;
-    doc.text(compra_status == 1 ? 'Encomenda' : 'Em mão', (pageWidth - doc.getTextWidth(compra_status == 1 ? 'Encomenda' : 'Em mão') - 10), yOffset);
+    doc.text(compra_status == 1 ? 'Encomenda' : 'Em mão', (pageWidth - doc.getTextWidth(compra_status == 1 ? 'Encomenda' : 'Em mão') - 15), yOffset);
 
     cart = [];
     cart_gomasKilo = [];
@@ -1289,6 +1299,7 @@ function generatePDF() {
     // Download the PDF
     doc.save('carrinho-gomasdalau.pdf');
 
+    document.getElementById('cart-popup').style.display = 'none';
 
     updateCartCount();
     updateCartPopup();
@@ -1366,6 +1377,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+document.getElementById("details-view").addEventListener("input", function (event) {
+    if (event.target.matches("input, select")) {
+        handleInputChange(event.target);
+    }
+});
+function handleInputChange() {
+    const name = document.getElementById('user-name');
+    const name2 = document.getElementById('user-name2');
+    const email = document.getElementById('user-email');
+    const country = document.getElementById('user-country');
+    const city = document.getElementById('user-city');
+    const address = document.getElementById('user-address');
+    const postalcode = document.getElementById('user-postalcode');
+    const phone = document.getElementById('user-phone');
+    const download_btn = document.getElementById('download-pdf-btn');
+
+    // Ensure all required fields are filled
+    if (
+        name.value.trim() &&
+        name2.value.trim() &&
+        email.value.trim() &&
+        country.value.trim() &&
+        city.value.trim() &&
+        address.value.trim() &&
+        postalcode.value.trim() &&
+        phone.value.trim()
+    ) {
+        download_btn.disabled = false;
+    } else {
+        download_btn.disabled = true;
+    }
+}
+
+
 // NOTIFICAÇÃO
 let currentNotification = null;
 
@@ -1400,7 +1445,6 @@ function showNotification(message) {
 const cartView = document.getElementById('cart-view');
 const detailsView = document.getElementById('details-view');
 const cartTitle = document.getElementById('cart-title');
-const downloadBtn = document.getElementById('download-pdf-btn');
 
 // Switch to "Adicionar dados" view
 function switchToDetails() {
@@ -1410,9 +1454,6 @@ function switchToDetails() {
     cartTitle.textContent = 'Adicionar dados 📝';
     cartView.style.display = 'none';
     detailsView.style.display = 'block';
-
-    const downloadbtn = document.getElementById('download-pdf-btn');
-    downloadbtn.disabled = false;
     
 }
 
@@ -1502,17 +1543,13 @@ function calcularPortes(){
         cart.forEach(item => {
             if(item.peso){
                 pesoTotal += item.peso * item.quantity;
-                console.log(item.peso * item.quantity);
             }
             else{
-                console.log(10 * item.quantity);
                 pesoTotal += 0.01 * item.quantity;
             }
         });
 
         const country = countries.find(c => c.name === countryName);
-
-        console.log('TOTAL: ' + pesoTotal);
 
         let portes = 0;
         for (let i = 1; i <= 20; i++) {
@@ -1618,11 +1655,20 @@ goToTopButton.addEventListener("click", () => {
 // MOSTRAR CARRINHO
 document.getElementById('cart-icon').addEventListener('click', function() {
     document.getElementById('cart-popup').style.display = 'flex'; // Show popup
+
+    const continuebtn = document.getElementById('next-btn');
+    if(cart.length >= 1){
+        continuebtn.disabled = false;
+    }
+    else{
+        continuebtn.disabled = true;
+    }
 });
 
 // ESCONDER CARRINHO
 document.getElementById('close-popup-span').addEventListener('click', function() {
     document.getElementById('cart-popup').style.display = 'none'; // Hide popup
+
     desconto_aplicado = false;
 
     document.getElementById('aplicar-desconto').disabled = false;
@@ -1633,6 +1679,7 @@ document.getElementById('close-popup-span').addEventListener('click', function()
     const name2 = document.getElementById('user-name2');
     const email = document.getElementById('user-email');
     const country = document.getElementById('user-country');
+    const city = document.getElementById('user-city');
     const address = document.getElementById('user-address');
     const postalcode = document.getElementById('user-postalcode');
     const phone = document.getElementById('user-phone');
@@ -1642,6 +1689,7 @@ document.getElementById('close-popup-span').addEventListener('click', function()
     name2.value = '';
     email.value = '';
     country.value = "";
+    city.value = '';
     address.value = '';
     postalcode.value = '';
     phone.value = '';
@@ -1696,13 +1744,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // DISABLE DEV TOOLS
-/*document.addEventListener('contextmenu', (e) => e.preventDefault());
+document.addEventListener('contextmenu', (e) => e.preventDefault());
 
 function ctrlShiftKey(e, keyCode) {
   return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-}*/
+}
 
-/*document.onkeydown = (e) => {
+document.onkeydown = (e) => {
   // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
   if (
     event.keyCode === 123 ||
@@ -1712,4 +1760,4 @@ function ctrlShiftKey(e, keyCode) {
     (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
   )
     return false;
-};*/
+};
