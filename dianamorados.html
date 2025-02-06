@@ -122,6 +122,7 @@
                 <span id="close-popup-span">&times;</span>
             </div>
             <h3 id="cart-title">Carrinho 🛒</h3>
+
             <h5 id="cart-error" style="color:red;"></h5>
             
             <div id="cart-view">
@@ -145,8 +146,8 @@
                         <input type="email" id="user-email" placeholder="Email" autocomplete="off">
                     </div>
                     <div>
-                        <select id="user-country" name="country">
-                            <option value="" disabled selected>Escolha o seu país</option>
+                        <select id="user-country" name="country" onchange="calcularPortes();">
+                            <option value="none" disabled selected>Escolha o seu país</option>
                             <option value="Alemanha">Alemanha</option>
                             <option value="Áustria">Áustria</option>
                             <option value="Bélgica">Bélgica</option>
@@ -170,7 +171,10 @@
                             <option value="Espanha">Espanha</option>
                             <option value="Portugal Continental">Portugal Continental</option>
                             <option value="Portugal Ilhas">Portugal Ilhas</option>
-                        </select>                       
+                        </select>                   
+                    </div>
+                    <div>
+                        <input type="text" id="user-city" placeholder="Cidade" autocomplete="off">
                     </div>
                     <div>
                         <input type="text" id="user-address" placeholder="Morada" autocomplete="off">
@@ -179,7 +183,7 @@
                         <input type="text" id="user-postalcode" placeholder="Código postal" autocomplete="off">
                     </div>
                     <div>
-                        <input type="text" id="user-phone" placeholder="Telefone" autocomplete="off">
+                        <input type="number" id="user-phone" placeholder="Telefone" autocomplete="off">
                     </div> 
                     <div>
                         <input type="number" id="user-nif" placeholder="NIF (fatura)" autocomplete="off">
@@ -195,7 +199,7 @@
                         </div>
                         
                         <div class="details-btns">
-                            <button id="back-btn" onclick="switchToCart()">Voltar ao Carrinho</button>
+                            <button id="em-mao" onclick="em_mao()" style="background-color: #FD8D81;">Em mão</button>
                             <button id="download-pdf-btn" onclick="generatePDF()" disabled>Download PDF</button>
                         </div>
                         </div>  
