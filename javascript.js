@@ -1,5 +1,5 @@
 const codigos_desconto = [
-    { code: "LAU10", discount: 10 },
+    //{ code: "LAU10", discount: 10 },
 ]
 
 let desconto_aplicado = false;
