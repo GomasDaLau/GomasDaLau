@@ -1232,6 +1232,8 @@ function generatePDF() {
     let postalcode = document.getElementById('user-postalcode').value;
     let phone = document.getElementById('user-phone').value;
 
+    let notas = document.getElementById('user-notas').value;
+
     // Add personal details to the PDF
     doc.setFontSize(12);
     doc.text(`Nome: ${name} ${name2}`, 10, yOffset); yOffset += 6;
@@ -1240,7 +1242,13 @@ function generatePDF() {
     doc.text(`Cidade: ${city}`, 10, yOffset); yOffset += 6;
     doc.text(`Morada: ${address}`, 10, yOffset); yOffset += 6;
     doc.text(`Código Postal: ${postalcode}`, 10, yOffset); yOffset += 6;
-    doc.text(`Telefone: ${phone}`, 10, yOffset); yOffset += 15;
+    doc.text(`Telefone: ${phone}`, 10, yOffset); yOffset += 6;
+
+    const maxWidth = pageWidth - 20; // Define a largura máxima do texto (ajustável)
+    const notasWrapped = doc.splitTextToSize(`Notas: ${notas}`, maxWidth);
+    doc.text(notasWrapped, 10, yOffset);
+ 
+    yOffset += 15;
 
 
 

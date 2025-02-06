@@ -382,7 +382,10 @@
   margin: 0 15px;
 }
 
-.details input, select {
+textarea{
+  resize: none; 
+}
+.details input, select, textarea {
   width: 80%;
   padding: 10px 15px; /* Add some padding for better readability */
   margin: 5px 0; /* Add space between inputs */
@@ -393,13 +396,13 @@
   transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover and focus */
 }
 
-.details input:focus {
+.details input:focus, select:focus, textarea:focus {
   border-color: #ab6685; /* Highlighted border color on focus */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow on focus */
   outline: none; /* Remove the default blue outline */
 }
 
-.details input::placeholder {
+.details input::placeholder, textarea::placeholder {
   color: #888; /* Subtle placeholder color */
   font-style: italic; /* Italicized placeholder text */
 }
