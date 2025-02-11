@@ -259,11 +259,11 @@ const products_outros=[
 ];
 
 const products_namorados=[
-    { id: 99994, name: "Coração Rose Gold", price: 17.50, image: "https://i.ibb.co/Tx48tStC/304.jpg", quantity: 0 , peso: 0.1300},
-    { id: 99995, name: "Redonda Prateada", price: 17.50, image: "https://i.ibb.co/prKq8rpY/305.jpg", quantity: 0 ,peso: 0.1300},
-    { id: 99996, name: "Coração Prateado", price: 17.50, image: "https://i.ibb.co/fV83RtcC/307.jpg", quantity: 0 , peso: 0.1300},
-    { id: 99997, name: "Coração Dourado", price: 17.50, image: "https://i.ibb.co/M5kbQDzR/308.jpg", quantity: 0 , peso: 0.1300},
-    { id: 99998, name: "Redonda Dourada", price: 17.50, image: "https://i.ibb.co/xKqMJY5D/309.jpg", quantity: 0 , peso: 0.1300},
+    { id: 99994, name: "Coração Rose Gold", price: 15.75, image: "https://i.ibb.co/Tx48tStC/304.jpg", quantity: 0 , peso: 0.1300},
+    { id: 99995, name: "Redonda Prateada", price: 15.75, image: "https://i.ibb.co/prKq8rpY/305.jpg", quantity: 0 ,peso: 0.1300},
+    { id: 99996, name: "Coração Prateado", price: 15.75, image: "https://i.ibb.co/fV83RtcC/307.jpg", quantity: 0 , peso: 0.1300},
+    { id: 99997, name: "Coração Dourado", price: 15.75, image: "https://i.ibb.co/M5kbQDzR/308.jpg", quantity: 0 , peso: 0.1300},
+    { id: 99998, name: "Redonda Dourada", price: 15.75, image: "https://i.ibb.co/xKqMJY5D/309.jpg", quantity: 0 , peso: 0.1300},
 ]
 
 let global_nGomasKilo = 0;
