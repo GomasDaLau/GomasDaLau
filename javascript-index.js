@@ -1,5 +1,5 @@
 const images = [
-    { src: 'images/slideshow1.png', link: 'dianamorados.html' },
+    //{ src: 'images/slideshow1.png', link: 'dianamorados.html' },
     { src: 'images/slideshow2.png', link: 'index.html' },
     { src: 'images/slideshow3.png', link: 'gomaskilo.html' }
 ];
