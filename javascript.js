@@ -209,7 +209,7 @@ const products_marshmallows = [
     { id: 6004, name: "Marshmallow coberto de chocolate negro", price: 0.30, image: "https://i.ibb.co/Zz0tcpxb/169.jpg", quantity: 0, peso: 0.005  },
     { id: 6005, name: "Recheado de morango", price: 0.15, image: "https://i.ibb.co/pB7MMHhF/171.jpg", quantity: 0, peso: 0.005  },
     { id: 6006, name: "Recheado de framboesa", price: 0.15, image: "https://i.ibb.co/3YsnHrSv/172.jpg", quantity: 0, peso: 0.005  },
-    { id: 6007, name: "Bananas choco", price: 0.35, image: "https://i.ibb.co/mYPrGvr/173.jpg", quantity: 0, peso: 0.005  },
+    { id: 6007, name: "Bananas choco", price: 0.30, image: "https://i.ibb.co/mYPrGvr/173.jpg", quantity: 0, peso: 0.005  },
     { id: 6008, name: "Choco jumbos", price: 0.90, image: "https://i.ibb.co/Q2ChzDK/174.jpg", quantity: 0, peso: 0.040 },
     { id: 6009, name: "Crujitos de Chocolate Branco/Leite", price: 0.25, image: "https://i.ibb.co/JWsJNjZT/175.jpg", quantity: 0, sabor: ["Chocolate Branco", "Chocolate Leite"], peso: 0.005  },
     { id: 6010, name: "Croissants recheados", price: 0.30, image: "https://i.ibb.co/TzhdDpt/176.jpg", quantity: 0, peso: 0.005  },
